@@ -1,14 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lora-Regular.ttf">
+            <string>Lora-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Mini_Chamber" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +27,88 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MiniChamber Background.png" translatesAutoresizingMaskIntoConstraints="NO" id="5AI-wF-btp">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <view autoresizesSubviews="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lu1-ie-Ym9">
+                                <rect key="frame" x="41" y="20" width="292" height="627"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Mini Chamber.png" translatesAutoresizingMaskIntoConstraints="NO" id="KyV-It-uYl">
+                                        <rect key="frame" x="34" y="51" width="225" height="42"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="KyV-It-uYl" secondAttribute="height" multiplier="75:14" id="cMa-91-UIQ"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="KyV-It-uYl" firstAttribute="centerX" secondItem="Lu1-ie-Ym9" secondAttribute="centerX" id="k10-2i-hIp"/>
+                                </constraints>
+                            </view>
+                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6HT-pX-kGS">
+                                <rect key="frame" x="151" y="317" width="72" height="33"/>
+                                <fontDescription key="fontDescription" name="Lora-Regular" family="Lora" pointSize="17"/>
+                                <state key="normal" title="Free Play">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="FFH-EJ-Ziq" kind="presentation" id="hEW-jL-aiN"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="KyV-It-uYl" firstAttribute="width" secondItem="5AI-wF-btp" secondAttribute="height" multiplier="225:667" id="Agb-fi-Zxe"/>
+                            <constraint firstItem="Lu1-ie-Ym9" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="C7x-ld-TSA"/>
+                            <constraint firstItem="Lu1-ie-Ym9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="25" id="IHH-Qd-R5C"/>
+                            <constraint firstItem="5AI-wF-btp" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="NvC-kK-k75"/>
+                            <constraint firstItem="5AI-wF-btp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="UJe-ou-dFe"/>
+                            <constraint firstItem="6HT-pX-kGS" firstAttribute="centerX" secondItem="Lu1-ie-Ym9" secondAttribute="centerX" id="YsF-Is-iJr"/>
+                            <constraint firstItem="5AI-wF-btp" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="gDL-UL-EHI"/>
+                            <constraint firstItem="6HT-pX-kGS" firstAttribute="centerX" secondItem="5AI-wF-btp" secondAttribute="centerX" id="khL-Vf-vOZ"/>
+                            <constraint firstAttribute="trailing" secondItem="5AI-wF-btp" secondAttribute="trailing" id="p7a-AC-Ecg"/>
+                            <constraint firstItem="6HT-pX-kGS" firstAttribute="centerY" secondItem="Lu1-ie-Ym9" secondAttribute="centerY" id="y4y-Pv-uxN"/>
+                            <constraint firstItem="6HT-pX-kGS" firstAttribute="centerY" secondItem="5AI-wF-btp" secondAttribute="centerY" id="yTv-Kg-Mh9"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="32.799999999999997" y="37.331334332833585"/>
+        </scene>
+        <!--Mini ChamberVC-->
+        <scene sceneID="Uhc-0i-TUt">
+            <objects>
+                <viewController id="FFH-EJ-Ziq" customClass="MiniChamberVC" customModule="Mini_Chamber" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tPJ-At-nep"/>
+                        <viewControllerLayoutGuide type="bottom" id="dZd-fY-biS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="AZS-yA-oHV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MiniChamber Background.png" translatesAutoresizingMaskIntoConstraints="NO" id="hKt-gp-Zzs">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hKt-gp-Zzs" firstAttribute="bottom" secondItem="dZd-fY-biS" secondAttribute="top" id="8xZ-ks-Vx8"/>
+                            <constraint firstItem="hKt-gp-Zzs" firstAttribute="top" secondItem="AZS-yA-oHV" secondAttribute="top" id="Rzk-97-4Kn"/>
+                            <constraint firstAttribute="trailing" secondItem="hKt-gp-Zzs" secondAttribute="trailing" id="Ufc-kP-ht1"/>
+                            <constraint firstItem="hKt-gp-Zzs" firstAttribute="leading" secondItem="AZS-yA-oHV" secondAttribute="leading" id="xfG-HV-FFL"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1zS-Rf-GfP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="901.60000000000002" y="138.98050974512745"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Mini Chamber.png" width="226" height="41"/>
+        <image name="MiniChamber Background.png" width="434" height="606"/>
+    </resources>
 </document>

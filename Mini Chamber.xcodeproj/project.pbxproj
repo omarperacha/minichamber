@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		594A55251E81517B006CC5EE /* MiniChamberVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594A55241E81517B006CC5EE /* MiniChamberVC.swift */; };
+		594A55271E817D75006CC5EE /* MiniChamber Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 594A55261E817D75006CC5EE /* MiniChamber Background.png */; };
+		594A55291E817D89006CC5EE /* lora in Resources */ = {isa = PBXBuildFile; fileRef = 594A55281E817D89006CC5EE /* lora */; };
+		594A552B1E819481006CC5EE /* OP presents II.png in Resources */ = {isa = PBXBuildFile; fileRef = 594A552A1E819481006CC5EE /* OP presents II.png */; };
+		594A55311E819874006CC5EE /* Mini Chamber.png in Resources */ = {isa = PBXBuildFile; fileRef = 594A55301E819874006CC5EE /* Mini Chamber.png */; };
 		59F147451E648A2200864723 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F147441E648A2200864723 /* AppDelegate.swift */; };
 		59F147471E648A2200864723 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F147461E648A2200864723 /* ViewController.swift */; };
 		59F1474A1E648A2700864723 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59F147481E648A2700864723 /* Main.storyboard */; };
@@ -50,6 +55,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		594A55241E81517B006CC5EE /* MiniChamberVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniChamberVC.swift; sourceTree = "<group>"; };
+		594A55261E817D75006CC5EE /* MiniChamber Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MiniChamber Background.png"; sourceTree = "<group>"; };
+		594A55281E817D89006CC5EE /* lora */ = {isa = PBXFileReference; lastKnownFileType = folder; path = lora; sourceTree = "<group>"; };
+		594A552A1E819481006CC5EE /* OP presents II.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "OP presents II.png"; sourceTree = "<group>"; };
+		594A55301E819874006CC5EE /* Mini Chamber.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Mini Chamber.png"; sourceTree = "<group>"; };
 		59F147411E648A2000864723 /* Mini Chamber.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mini Chamber.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		59F147441E648A2200864723 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		59F147461E648A2200864723 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -95,6 +105,7 @@
 		59F147381E648A1C00864723 = {
 			isa = PBXGroup;
 			children = (
+				594A55301E819874006CC5EE /* Mini Chamber.png */,
 				59F147721E648B8400864723 /* AudioKit.framework */,
 				59F147431E648A2100864723 /* Mini Chamber */,
 				59F147581E648A4500864723 /* Mini ChamberTests */,
@@ -118,7 +129,11 @@
 			children = (
 				59F147441E648A2200864723 /* AppDelegate.swift */,
 				59F147461E648A2200864723 /* ViewController.swift */,
+				594A55241E81517B006CC5EE /* MiniChamberVC.swift */,
+				594A55281E817D89006CC5EE /* lora */,
+				594A55261E817D75006CC5EE /* MiniChamber Background.png */,
 				59F147481E648A2700864723 /* Main.storyboard */,
+				594A552A1E819481006CC5EE /* OP presents II.png */,
 				59F1474B1E648A3200864723 /* Assets.xcassets */,
 				59F1474D1E648A3500864723 /* LaunchScreen.storyboard */,
 				59F147501E648A3800864723 /* Info.plist */,
@@ -255,6 +270,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				594A55271E817D75006CC5EE /* MiniChamber Background.png in Resources */,
+				594A55311E819874006CC5EE /* Mini Chamber.png in Resources */,
+				594A55291E817D89006CC5EE /* lora in Resources */,
+				594A552B1E819481006CC5EE /* OP presents II.png in Resources */,
 				59F1474F1E648A3500864723 /* LaunchScreen.storyboard in Resources */,
 				59F1474C1E648A3200864723 /* Assets.xcassets in Resources */,
 				59F1474A1E648A2700864723 /* Main.storyboard in Resources */,
@@ -284,6 +303,7 @@
 			files = (
 				59F147471E648A2200864723 /* ViewController.swift in Sources */,
 				59F147451E648A2200864723 /* AppDelegate.swift in Sources */,
+				594A55251E81517B006CC5EE /* MiniChamberVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -542,6 +562,7 @@
 				59F1476B1E648A4900864723 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		59F1476C1E648A4900864723 /* Build configuration list for PBXNativeTarget "Mini ChamberTests" */ = {
 			isa = XCConfigurationList;
@@ -550,6 +571,7 @@
 				59F1476E1E648A4900864723 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		59F1476F1E648A4900864723 /* Build configuration list for PBXNativeTarget "Mini ChamberUITests" */ = {
 			isa = XCConfigurationList;
@@ -558,6 +580,7 @@
 				59F147711E648A4900864723 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

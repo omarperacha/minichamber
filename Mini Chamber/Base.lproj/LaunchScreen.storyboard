@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,12 +22,36 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MiniChamber Background.png" translatesAutoresizingMaskIntoConstraints="NO" id="tti-S1-mrR">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OP presents II.png" translatesAutoresizingMaskIntoConstraints="NO" id="9Np-44-bX9">
+                                <rect key="frame" x="99" y="298.5" width="177" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="9Np-44-bX9" secondAttribute="height" multiplier="177:35" id="IT0-gr-qsI"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="tti-S1-mrR" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="GNi-fo-7Wt"/>
+                            <constraint firstItem="9Np-44-bX9" firstAttribute="centerX" secondItem="tti-S1-mrR" secondAttribute="centerX" id="KsM-fO-bk0"/>
+                            <constraint firstItem="9Np-44-bX9" firstAttribute="width" secondItem="tti-S1-mrR" secondAttribute="height" multiplier="177:667" id="Q01-S4-iLB"/>
+                            <constraint firstItem="tti-S1-mrR" firstAttribute="bottom" secondItem="xb3-aO-Qok" secondAttribute="top" id="UkI-m8-Efx"/>
+                            <constraint firstItem="9Np-44-bX9" firstAttribute="bottom" secondItem="tti-S1-mrR" secondAttribute="centerY" id="ajq-UK-Tg3"/>
+                            <constraint firstAttribute="trailing" secondItem="tti-S1-mrR" secondAttribute="trailing" id="diq-ef-2aK"/>
+                            <constraint firstItem="tti-S1-mrR" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="hZW-me-er5"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="MiniChamber Background.png" width="434" height="606"/>
+        <image name="OP presents II.png" width="202" height="45"/>
+    </resources>
 </document>
