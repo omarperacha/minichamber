@@ -30,6 +30,7 @@
                                 <rect key="frame" x="99" y="298.5" width="177" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="9Np-44-bX9" secondAttribute="height" multiplier="177:35" id="IT0-gr-qsI"/>
+                                    <constraint firstAttribute="width" constant="177" id="jT6-CM-G5A"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -37,7 +38,6 @@
                         <constraints>
                             <constraint firstItem="tti-S1-mrR" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="GNi-fo-7Wt"/>
                             <constraint firstItem="9Np-44-bX9" firstAttribute="centerX" secondItem="tti-S1-mrR" secondAttribute="centerX" id="KsM-fO-bk0"/>
-                            <constraint firstItem="9Np-44-bX9" firstAttribute="width" secondItem="tti-S1-mrR" secondAttribute="height" multiplier="177:667" id="Q01-S4-iLB"/>
                             <constraint firstItem="tti-S1-mrR" firstAttribute="bottom" secondItem="xb3-aO-Qok" secondAttribute="top" id="UkI-m8-Efx"/>
                             <constraint firstItem="9Np-44-bX9" firstAttribute="bottom" secondItem="tti-S1-mrR" secondAttribute="centerY" id="ajq-UK-Tg3"/>
                             <constraint firstAttribute="trailing" secondItem="tti-S1-mrR" secondAttribute="trailing" id="diq-ef-2aK"/>

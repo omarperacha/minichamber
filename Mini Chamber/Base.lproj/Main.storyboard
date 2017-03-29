@@ -8,13 +8,9 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Lora-Regular.ttf">
-            <string>Lora-Regular</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -34,48 +30,134 @@
                             <view autoresizesSubviews="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lu1-ie-Ym9">
                                 <rect key="frame" x="41" y="20" width="292" height="627"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Mini Chamber.png" translatesAutoresizingMaskIntoConstraints="NO" id="KyV-It-uYl">
-                                        <rect key="frame" x="34" y="51" width="225" height="42"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Mini Chamber.png" translatesAutoresizingMaskIntoConstraints="NO" id="KyV-It-uYl">
+                                        <rect key="frame" x="34" y="63" width="225" height="42"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="KyV-It-uYl" secondAttribute="height" multiplier="75:14" id="cMa-91-UIQ"/>
                                         </constraints>
                                     </imageView>
+                                    <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p4j-bF-euY">
+                                        <rect key="frame" x="64" y="447.5" width="165" height="46"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="46" id="2Ni-k6-qhB"/>
+                                            <constraint firstAttribute="width" constant="165" id="URn-ys-PtK"/>
+                                        </constraints>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="Record">
+                                                    <attributes>
+                                                        <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <font key="NSFont" size="33" name="Copperplate"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </state>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.34999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vox I.i" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="By3-3G-Ar7">
+                                        <rect key="frame" x="120" y="36" width="53" height="18"/>
+                                        <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Headphone Icon 4.png" translatesAutoresizingMaskIntoConstraints="NO" id="PXh-ra-Grd">
+                                        <rect key="frame" x="127" y="163.5" width="38" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="38" id="NPr-oj-9CD"/>
+                                            <constraint firstAttribute="height" constant="35" id="kcX-Wa-TG9"/>
+                                        </constraints>
+                                    </imageView>
+                                    <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="chj-2A-hHF">
+                                        <rect key="frame" x="139" y="-20" width="25" height="467.5"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="25" id="zdY-ds-oPp"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="KyV-It-uYl" firstAttribute="centerX" secondItem="By3-3G-Ar7" secondAttribute="centerX" id="7AF-7t-dfn"/>
+                                    <constraint firstItem="p4j-bF-euY" firstAttribute="centerX" secondItem="Lu1-ie-Ym9" secondAttribute="centerX" id="JVu-Tj-QK2"/>
+                                    <constraint firstItem="KyV-It-uYl" firstAttribute="top" secondItem="By3-3G-Ar7" secondAttribute="bottom" constant="9" id="Teh-f3-neu"/>
                                     <constraint firstItem="KyV-It-uYl" firstAttribute="centerX" secondItem="Lu1-ie-Ym9" secondAttribute="centerX" id="k10-2i-hIp"/>
+                                    <constraint firstItem="p4j-bF-euY" firstAttribute="top" secondItem="chj-2A-hHF" secondAttribute="bottom" id="tct-eb-xka"/>
                                 </constraints>
                             </view>
-                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6HT-pX-kGS">
-                                <rect key="frame" x="151" y="317" width="72" height="33"/>
-                                <fontDescription key="fontDescription" name="Lora-Regular" family="Lora" pointSize="17"/>
-                                <state key="normal" title="Free Play">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6HT-pX-kGS">
+                                <rect key="frame" x="105" y="367" width="165" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="165" id="DWa-fy-wqU"/>
+                                </constraints>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Free Play">
+                                            <attributes>
+                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="33" name="Copperplate"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
                                 </state>
                                 <connections>
                                     <segue destination="FFH-EJ-Ziq" kind="presentation" id="hEW-jL-aiN"/>
                                 </connections>
                             </button>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6kf-iP-kVD">
+                                <rect key="frame" x="358" y="0.0" width="17" height="83"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RWs-fa-Ula">
+                                <rect key="frame" x="0.0" y="0.0" width="25" height="367"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="Ddq-ZK-4oZ"/>
+                                </constraints>
+                            </view>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dZh-Qz-Ntg">
+                                <rect key="frame" x="0.0" y="0.0" width="41" height="183.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="41" id="uc2-KF-LLf"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="Lu1-ie-Ym9" firstAttribute="centerY" secondItem="5AI-wF-btp" secondAttribute="centerY" id="2qV-JD-Iov"/>
+                            <constraint firstItem="chj-2A-hHF" firstAttribute="height" secondItem="5AI-wF-btp" secondAttribute="height" multiplier="0.7" id="4W9-BY-MXo"/>
+                            <constraint firstItem="5AI-wF-btp" firstAttribute="leading" secondItem="chj-2A-hHF" secondAttribute="trailing" constant="-205" id="9Lo-QI-8YH"/>
+                            <constraint firstItem="RWs-fa-Ula" firstAttribute="leading" secondItem="5AI-wF-btp" secondAttribute="leading" id="9ZM-SA-erI"/>
                             <constraint firstItem="KyV-It-uYl" firstAttribute="width" secondItem="5AI-wF-btp" secondAttribute="height" multiplier="225:667" id="Agb-fi-Zxe"/>
-                            <constraint firstItem="Lu1-ie-Ym9" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="C7x-ld-TSA"/>
                             <constraint firstItem="Lu1-ie-Ym9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="25" id="IHH-Qd-R5C"/>
+                            <constraint firstItem="Lu1-ie-Ym9" firstAttribute="centerX" secondItem="5AI-wF-btp" secondAttribute="centerX" id="Ma4-MN-IvF"/>
                             <constraint firstItem="5AI-wF-btp" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="NvC-kK-k75"/>
+                            <constraint firstItem="6HT-pX-kGS" firstAttribute="top" secondItem="RWs-fa-Ula" secondAttribute="bottom" id="PWC-iP-sM4"/>
+                            <constraint firstItem="dZh-Qz-Ntg" firstAttribute="top" secondItem="5AI-wF-btp" secondAttribute="top" id="SPn-kK-jVQ"/>
+                            <constraint firstItem="KyV-It-uYl" firstAttribute="top" secondItem="6kf-iP-kVD" secondAttribute="bottom" id="TYG-iN-UGl"/>
+                            <constraint firstItem="5AI-wF-btp" firstAttribute="top" secondItem="6kf-iP-kVD" secondAttribute="top" id="Tcl-LR-hRf"/>
                             <constraint firstItem="5AI-wF-btp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="UJe-ou-dFe"/>
+                            <constraint firstItem="5AI-wF-btp" firstAttribute="top" secondItem="chj-2A-hHF" secondAttribute="top" id="Wb6-iS-zSE"/>
+                            <constraint firstItem="Lu1-ie-Ym9" firstAttribute="height" secondItem="5AI-wF-btp" secondAttribute="height" multiplier="0.94" id="XjP-VH-Jjw"/>
+                            <constraint firstItem="dZh-Qz-Ntg" firstAttribute="height" secondItem="5AI-wF-btp" secondAttribute="height" multiplier="0.275" id="YBE-Vt-CyO"/>
                             <constraint firstItem="6HT-pX-kGS" firstAttribute="centerX" secondItem="Lu1-ie-Ym9" secondAttribute="centerX" id="YsF-Is-iJr"/>
+                            <constraint firstItem="RWs-fa-Ula" firstAttribute="height" secondItem="5AI-wF-btp" secondAttribute="height" multiplier="0.55" id="cxm-Jk-dCq"/>
                             <constraint firstItem="5AI-wF-btp" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="gDL-UL-EHI"/>
-                            <constraint firstItem="6HT-pX-kGS" firstAttribute="centerX" secondItem="5AI-wF-btp" secondAttribute="centerX" id="khL-Vf-vOZ"/>
+                            <constraint firstItem="6kf-iP-kVD" firstAttribute="height" secondItem="5AI-wF-btp" secondAttribute="height" multiplier="0.125" id="gbK-8Z-HkP"/>
+                            <constraint firstItem="dZh-Qz-Ntg" firstAttribute="leading" secondItem="5AI-wF-btp" secondAttribute="leading" id="i5p-t4-RBY"/>
+                            <constraint firstItem="PXh-ra-Grd" firstAttribute="top" secondItem="dZh-Qz-Ntg" secondAttribute="bottom" id="n9O-sc-EZW"/>
                             <constraint firstAttribute="trailing" secondItem="5AI-wF-btp" secondAttribute="trailing" id="p7a-AC-Ecg"/>
-                            <constraint firstItem="6HT-pX-kGS" firstAttribute="centerY" secondItem="Lu1-ie-Ym9" secondAttribute="centerY" id="y4y-Pv-uxN"/>
-                            <constraint firstItem="6HT-pX-kGS" firstAttribute="centerY" secondItem="5AI-wF-btp" secondAttribute="centerY" id="yTv-Kg-Mh9"/>
+                            <constraint firstItem="PXh-ra-Grd" firstAttribute="centerX" secondItem="5AI-wF-btp" secondAttribute="centerX" id="smG-8P-e4P"/>
+                            <constraint firstItem="6kf-iP-kVD" firstAttribute="leading" secondItem="Lu1-ie-Ym9" secondAttribute="trailing" constant="25" id="xfu-MW-pR3"/>
+                            <constraint firstItem="5AI-wF-btp" firstAttribute="top" secondItem="RWs-fa-Ula" secondAttribute="top" id="ylJ-XR-F8N"/>
+                            <constraint firstItem="6kf-iP-kVD" firstAttribute="trailing" secondItem="5AI-wF-btp" secondAttribute="trailing" id="zMV-rg-0bO"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="32.799999999999997" y="37.331334332833585"/>
+            <point key="canvasLocation" x="31.199999999999999" y="36.431784107946029"/>
         </scene>
         <!--Mini ChamberVC-->
         <scene sceneID="Uhc-0i-TUt">
@@ -108,6 +190,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Headphone Icon 4.png" width="69" height="65"/>
         <image name="Mini Chamber.png" width="226" height="41"/>
         <image name="MiniChamber Background.png" width="434" height="606"/>
     </resources>
