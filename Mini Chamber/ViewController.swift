@@ -11,6 +11,10 @@ import AudioKit
 
 class ViewController: UIViewController {
     
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
     @IBOutlet weak var FreePlayButton: UIButton!
     
     @IBOutlet weak var RecordButton: UIButton!

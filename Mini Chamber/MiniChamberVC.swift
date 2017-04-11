@@ -12,6 +12,10 @@ import AudioKit
 let input = AKMicrophone()
 
 class MiniChamberVC: UIViewController {
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
 
     let tracker = AKFrequencyTracker(input, hopSize: 512, peakCount: 1)
     
@@ -27,7 +31,17 @@ class MiniChamberVC: UIViewController {
     var as2one = AKOscillator()
     var as2two = AKOscillator()
     
+    var bhf2one = AKOscillator()
+    var bhf2two = AKOscillator()
     
+    var b2one = AKOscillator()
+    var b2two = AKOscillator()
+    
+    var bhs2one = AKOscillator()
+    var bhs2two = AKOscillator()
+    
+    var c3one = AKOscillator()
+    var c3two = AKOscillator()
     
     
 //MARK - DECLARE ENVELOPES
@@ -39,6 +53,21 @@ class MiniChamberVC: UIViewController {
     
     var envAs2one : AKAmplitudeEnvelope?
     var envAs2two : AKAmplitudeEnvelope?
+    
+    var envBhf2one : AKAmplitudeEnvelope?
+    var envBhf2two : AKAmplitudeEnvelope?
+    
+    var envB2one : AKAmplitudeEnvelope?
+    var envB2two : AKAmplitudeEnvelope?
+    
+    var envBhs2one : AKAmplitudeEnvelope?
+    var envBhs2two : AKAmplitudeEnvelope?
+    
+    var envC3one : AKAmplitudeEnvelope?
+    var envC3two : AKAmplitudeEnvelope?
+    
+    
+    
     
     var output = AKMixer()
     
@@ -56,8 +85,25 @@ class MiniChamberVC: UIViewController {
         as2one.frequency = 116.541; as2two.frequency = 116.541
         as2one.start(); as2two.start()
         
+        bhf2one.frequency = 119.956; bhf2two.frequency = 119.956
+        bhf2one.start(); bhf2two.start()
+        
+        b2one.frequency = 123.471; b2two.frequency = 123.471
+        b2one.start(); b2two.start()
+        
+        bhs2one.frequency = 127.089; bhs2two.frequency = 127.089
+        bhs2one.start(); bhs2two.start()
+        
+        c3one.frequency = 130.813; c3two.frequency = 130.813
+        c3one.start(); c3two.start()
+        
+        
+        
         tracker.start()
         input.start()
+        
+        
+        
    
 //MARK - SET UP ENVELOPES
         envA2one = AKAmplitudeEnvelope(a2one, attackDuration: 1, decayDuration: 0, sustainLevel: 1, releaseDuration: 0.5)
@@ -69,12 +115,30 @@ class MiniChamberVC: UIViewController {
         envAs2one = AKAmplitudeEnvelope(as2one, attackDuration: 1, decayDuration: 0, sustainLevel: 1, releaseDuration: 0.5)
         envAs2two = AKAmplitudeEnvelope(as2two, attackDuration: 1, decayDuration: 0, sustainLevel: 1, releaseDuration: 0.5)
         
+        envBhf2one = AKAmplitudeEnvelope(bhf2one, attackDuration: 1, decayDuration: 0, sustainLevel: 1, releaseDuration: 0.5)
+        envBhf2two = AKAmplitudeEnvelope(bhf2two, attackDuration: 1, decayDuration: 0, sustainLevel: 1, releaseDuration: 0.5)
         
+        envB2one = AKAmplitudeEnvelope(b2one, attackDuration: 1, decayDuration: 0, sustainLevel: 1, releaseDuration: 0.5)
+        envB2two = AKAmplitudeEnvelope(b2two, attackDuration: 1, decayDuration: 0, sustainLevel: 1, releaseDuration: 0.5)
+        
+        envBhs2one = AKAmplitudeEnvelope(bhs2one, attackDuration: 1, decayDuration: 0, sustainLevel: 1, releaseDuration: 0.5)
+        envBhs2two = AKAmplitudeEnvelope(bhs2two, attackDuration: 1, decayDuration: 0, sustainLevel: 1, releaseDuration: 0.5)
+        
+        envC3one = AKAmplitudeEnvelope(c3one, attackDuration: 1, decayDuration: 0, sustainLevel: 1, releaseDuration: 0.5)
+        envC3two = AKAmplitudeEnvelope(c3two, attackDuration: 1, decayDuration: 0, sustainLevel: 1, releaseDuration: 0.5)
+
+        
+
+    
         
         
         output = AKMixer(envA2two!, envA2one!,
                          envAhs2one!, envAhs2two!,
                          envAs2one!, envAs2two!,
+                         envBhf2one!, envBhf2two!,
+                         envB2one!, envB2two!,
+                         envBhs2one!, envBhs2two!,
+                         envC3one!, envC3two!,
                          input, tracker)
         output.volume = 0.1
     }
@@ -129,6 +193,59 @@ class MiniChamberVC: UIViewController {
                     self.envAs2one!.stop()})
             }
         }
+        
+        if tracker.frequency <= 121.701 && tracker.frequency > 118.236 {
+            print("Bd2")
+            if self.envBhf2one!.isStarted{
+                self.envBhf2two!.start()
+                DispatchQueue.main.asyncAfter(deadline: .now() + sus, execute: {
+                    self.envBhf2two!.stop()})
+            } else {
+                self.envBhf2one!.start()
+                DispatchQueue.main.asyncAfter(deadline: .now() + sus, execute: {
+                    self.envBhf2one!.stop()})
+            }
+        }
+        
+        if tracker.frequency <= 125.267 && tracker.frequency > 121.701 {
+            print("B2")
+            if self.envBhf2one!.isStarted{
+                self.envBhf2two!.start()
+                DispatchQueue.main.asyncAfter(deadline: .now() + sus, execute: {
+                    self.envBhf2two!.stop()})
+            } else {
+                self.envBhf2one!.start()
+                DispatchQueue.main.asyncAfter(deadline: .now() + sus, execute: {
+                    self.envBhf2one!.stop()})
+            }
+        }
+        
+        if tracker.frequency <= 128.937 && tracker.frequency > 125.267 {
+            print("B+2")
+            if self.envBhf2one!.isStarted{
+                self.envBhf2two!.start()
+                DispatchQueue.main.asyncAfter(deadline: .now() + sus, execute: {
+                    self.envBhf2two!.stop()})
+            } else {
+                self.envBhf2one!.start()
+                DispatchQueue.main.asyncAfter(deadline: .now() + sus, execute: {
+                    self.envBhf2one!.stop()})
+            }
+        }
+        
+        if tracker.frequency <= 132.715 && tracker.frequency > 128.937 {
+            print("C3")
+            if self.envBhf2one!.isStarted{
+                self.envBhf2two!.start()
+                DispatchQueue.main.asyncAfter(deadline: .now() + sus, execute: {
+                    self.envBhf2two!.stop()})
+            } else {
+                self.envBhf2one!.start()
+                DispatchQueue.main.asyncAfter(deadline: .now() + sus, execute: {
+                    self.envBhf2one!.stop()})
+            }
+        }
+
 
 
         
