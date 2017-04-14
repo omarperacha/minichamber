@@ -1,18 +1,16 @@
 //
-//  MiniChamberVC.swift
+//  RecordVC.swift
 //  Mini Chamber
 //
-//  Created by Omar Peracha on 21/03/2017.
+//  Created by Omar Peracha on 14/04/2017.
 //  Copyright © 2017 Omar Peracha. All rights reserved.
 //
 
 import UIKit
 import AudioKit
 
-let input = AKMicrophone()
+class RecordVC: UIViewController {
 
-class MiniChamberVC: UIViewController {
-    
     override var prefersStatusBarHidden: Bool {
         return true
     }
@@ -128,7 +126,7 @@ class MiniChamberVC: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+    
         
         AudioKit.output = output
         AudioKit.start()
@@ -153,22 +151,22 @@ class MiniChamberVC: UIViewController {
     
     func theBusiness() {
         
-        
-        if env1!.isPlaying == false {
-            s1.frequency = lastFreq
-            env1!.start()
-            print("env1 started at", s1.frequency)
-            DispatchQueue.main.asyncAfter(deadline: .now() + sus, execute: {
-                self.env1!.stop()})
-        } else
-            if env2!.isPlaying == false {
-                s2.frequency = lastFreq
-                env2!.start()
-                print("env2 started at", s2.frequency)
-                DispatchQueue.main.asyncAfter(deadline: .now() + sus, execute: {
-                    self.env2!.stop()})
-            } else
-                if env3!.isPlaying == false {
+                
+                if env1!.isPlaying == false {
+                    s1.frequency = lastFreq
+                    env1!.start()
+                    print("env1 started at", s1.frequency)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + sus, execute: {
+                        self.env1!.stop()})
+                } else
+                    if env2!.isPlaying == false {
+                    s2.frequency = lastFreq
+                    env2!.start()
+                    print("env2 started at", s2.frequency)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + sus, execute: {
+                        self.env2!.stop()})
+                } else
+                    if env3!.isPlaying == false {
                     s3.frequency = lastFreq
                     env3!.start()
                     print("env3 started at", s3.frequency)
@@ -176,89 +174,89 @@ class MiniChamberVC: UIViewController {
                         self.env3!.stop()})
                 } else
                     if env4!.isPlaying == false {
-                        s4.frequency = lastFreq
-                        env4!.start()
-                        print("env4 started at", s4.frequency)
-                        DispatchQueue.main.asyncAfter(deadline: .now() + sus, execute: {
-                            self.env4!.stop()})
-                    } else
-                        if env5!.isPlaying == false {
-                            s5.frequency = lastFreq
-                            env5!.start()
-                            print("env5 started at", s5.frequency)
+                    s4.frequency = lastFreq
+                    env4!.start()
+                    print("env4 started at", s4.frequency)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + sus, execute: {
+                        self.env4!.stop()})
+                } else
+                    if env5!.isPlaying == false {
+                    s5.frequency = lastFreq
+                    env5!.start()
+                    print("env5 started at", s5.frequency)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + sus, execute: {
+                        self.env5!.stop()})
+                } else
+                    if env6!.isPlaying == false {
+                    s6.frequency = lastFreq
+                    env6!.start()
+                    print("env6 started at", s6.frequency)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + sus, execute: {
+                        self.env6!.stop()})
+                } else
+                    if env7!.isPlaying == false {
+                    s7.frequency = lastFreq
+                    env7!.start()
+                    print("env7 started at", s7.frequency)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + sus, execute: {
+                        self.env7!.stop()})
+                } else
+                    if env8!.isPlaying == false {
+                            s8.frequency = lastFreq
+                            env8!.start()
+                            print("env8 started at", s8.frequency)
                             DispatchQueue.main.asyncAfter(deadline: .now() + sus, execute: {
-                                self.env5!.stop()})
-                        } else
-                            if env6!.isPlaying == false {
-                                s6.frequency = lastFreq
-                                env6!.start()
-                                print("env6 started at", s6.frequency)
+                                self.env8!.stop()})
+                } else
+                    if env9!.isPlaying == false {
+                                s9.frequency = lastFreq
+                                env9!.start()
+                                print("env9 started at", s9.frequency)
                                 DispatchQueue.main.asyncAfter(deadline: .now() + sus, execute: {
-                                    self.env6!.stop()})
-                            } else
-                                if env7!.isPlaying == false {
-                                    s7.frequency = lastFreq
-                                    env7!.start()
-                                    print("env7 started at", s7.frequency)
+                                    self.env9!.stop()})
+                } else
+                                if env10!.isPlaying == false {
+                                    s10.frequency = lastFreq
+                                    env10!.start()
+                                    print("env10 started at", s10.frequency)
                                     DispatchQueue.main.asyncAfter(deadline: .now() + sus, execute: {
-                                        self.env7!.stop()})
+                                        self.env10!.stop()})
                                 } else
-                                    if env8!.isPlaying == false {
-                                        s8.frequency = lastFreq
-                                        env8!.start()
-                                        print("env8 started at", s8.frequency)
+                                    if env11!.isPlaying == false {
+                                        s11.frequency = lastFreq
+                                        env11!.start()
+                                        print("env11 started at", s11.frequency)
                                         DispatchQueue.main.asyncAfter(deadline: .now() + sus, execute: {
-                                            self.env8!.stop()})
+                                            self.env11!.stop()})
                                     } else
-                                        if env9!.isPlaying == false {
-                                            s9.frequency = lastFreq
-                                            env9!.start()
-                                            print("env9 started at", s9.frequency)
+                                        if env12!.isPlaying == false {
+                                            s12.frequency = lastFreq
+                                            env12!.start()
+                                            print("env9 started at", s12.frequency)
                                             DispatchQueue.main.asyncAfter(deadline: .now() + sus, execute: {
-                                                self.env9!.stop()})
+                                                self.env12!.stop()})
                                         } else
-                                            if env10!.isPlaying == false {
-                                                s10.frequency = lastFreq
-                                                env10!.start()
-                                                print("env10 started at", s10.frequency)
+                                            if env12!.isPlaying == false {
+                                                s12.frequency = lastFreq
+                                                env12!.start()
+                                                print("env12 started at", s12.frequency)
                                                 DispatchQueue.main.asyncAfter(deadline: .now() + sus, execute: {
-                                                    self.env10!.stop()})
+                                                    self.env12!.stop()})
                                             } else
-                                                if env11!.isPlaying == false {
-                                                    s11.frequency = lastFreq
-                                                    env11!.start()
-                                                    print("env11 started at", s11.frequency)
+                                                if env13!.isPlaying == false {
+                                                    s13.frequency = lastFreq
+                                                    env13!.start()
+                                                    print("env13 started at", s13.frequency)
                                                     DispatchQueue.main.asyncAfter(deadline: .now() + sus, execute: {
-                                                        self.env11!.stop()})
+                                                        self.env13!.stop()})
                                                 } else
-                                                    if env12!.isPlaying == false {
-                                                        s12.frequency = lastFreq
-                                                        env12!.start()
-                                                        print("env9 started at", s12.frequency)
+                                                    if env14!.isPlaying == false {
+                                                        s14.frequency = lastFreq
+                                                        env14!.start()
+                                                        print("env14 started at", s14.frequency)
                                                         DispatchQueue.main.asyncAfter(deadline: .now() + sus, execute: {
-                                                            self.env12!.stop()})
-                                                    } else
-                                                        if env12!.isPlaying == false {
-                                                            s12.frequency = lastFreq
-                                                            env12!.start()
-                                                            print("env12 started at", s12.frequency)
-                                                            DispatchQueue.main.asyncAfter(deadline: .now() + sus, execute: {
-                                                                self.env12!.stop()})
-                                                        } else
-                                                            if env13!.isPlaying == false {
-                                                                s13.frequency = lastFreq
-                                                                env13!.start()
-                                                                print("env13 started at", s13.frequency)
-                                                                DispatchQueue.main.asyncAfter(deadline: .now() + sus, execute: {
-                                                                    self.env13!.stop()})
-                                                            } else
-                                                                if env14!.isPlaying == false {
-                                                                    s14.frequency = lastFreq
-                                                                    env14!.start()
-                                                                    print("env14 started at", s14.frequency)
-                                                                    DispatchQueue.main.asyncAfter(deadline: .now() + sus, execute: {
-                                                                        self.env14!.stop()})
-                                                                    
+                                                            self.env14!.stop()})
+        
         }
     }
     

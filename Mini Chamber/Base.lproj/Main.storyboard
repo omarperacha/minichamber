@@ -58,6 +58,9 @@
                                                 </fragment>
                                             </attributedString>
                                         </state>
+                                        <connections>
+                                            <segue destination="64T-0J-yYx" kind="presentation" id="gxx-Dr-KSi"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.34999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vox I.i" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="By3-3G-Ar7">
                                         <rect key="frame" x="107" y="18.5" width="53" height="18"/>
@@ -206,6 +209,35 @@
             </objects>
             <point key="canvasLocation" x="31.199999999999999" y="36.431784107946029"/>
         </scene>
+        <!--RecordVC-->
+        <scene sceneID="Zdt-Kh-KUH">
+            <objects>
+                <viewController id="64T-0J-yYx" customClass="RecordVC" customModule="Mini_Chamber" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zg1-yB-HIx"/>
+                        <viewControllerLayoutGuide type="bottom" id="YAg-rH-KJF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Pp2-bG-bk6">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MiniChamber Background.png" translatesAutoresizingMaskIntoConstraints="NO" id="Wxp-oX-wUp">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Wxp-oX-wUp" secondAttribute="trailing" id="07b-In-9as"/>
+                            <constraint firstItem="Wxp-oX-wUp" firstAttribute="leading" secondItem="Pp2-bG-bk6" secondAttribute="leading" id="NsO-Tj-cXG"/>
+                            <constraint firstItem="Wxp-oX-wUp" firstAttribute="bottom" secondItem="YAg-rH-KJF" secondAttribute="top" id="QjU-DM-sh8"/>
+                            <constraint firstItem="Wxp-oX-wUp" firstAttribute="top" secondItem="Pp2-bG-bk6" secondAttribute="top" id="zkm-mG-xnZ"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="02z-Ly-eMm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="200.625" y="780"/>
+        </scene>
         <!--Mini ChamberVC-->
         <scene sceneID="Uhc-0i-TUt">
             <objects>
@@ -233,7 +265,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1zS-Rf-GfP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="901.60000000000002" y="138.98050974512745"/>
+            <point key="canvasLocation" x="876" y="168"/>
         </scene>
     </scenes>
     <resources>
