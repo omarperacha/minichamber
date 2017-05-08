@@ -17,6 +17,13 @@ class MiniChamberVC: UIViewController {
         return true
     }
     
+    @IBOutlet weak var closeButton: RoundButton!
+    
+    @IBAction func dismissVC(_ sender: Any) {
+        self.dismiss(animated: false, completion: {})
+        AudioKit.stop()
+    }
+    
     let lower = (34.0/36.0)
     let upper = (36.0/34.0)
     var lastFreq = 0.0
@@ -79,6 +86,10 @@ class MiniChamberVC: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        closeButton.layer.borderWidth = 1.5
+        closeButton.layer.borderColor = UIColor.lightGray.cgColor
+
+        
         //MARK - SET UP OSCILLATORS
         s1.start(); s2.start(); s3.start(); s4.start(); s5.start(); s6.start()
         s7.start(); s8.start(); s9.start(); s10.start(); s11.start(); s12.start()
@@ -132,7 +143,7 @@ class MiniChamberVC: UIViewController {
         
         AudioKit.output = output
         AudioKit.start()
-        Timer.scheduledTimer(timeInterval: 0.7, target: self, selector: #selector(RecordVC.initiate), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: 0.7, target: self, selector: #selector(MiniChamberVC.initiate), userInfo: nil, repeats: true)
     }
     
     func initiate(){
