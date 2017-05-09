@@ -151,6 +151,12 @@ class MiniChamberVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        wave1.alpha = 0
+        wave2.alpha = 0
+        wave3.alpha = 0
+        wave4.alpha = 0
+        wave5.alpha = 0
+        
         
         AudioKit.output = output
         AudioKit.start()
@@ -179,6 +185,37 @@ class MiniChamberVC: UIViewController {
         animateDown1()
         }
         
+        if tracker.amplitude > 0.1 {
+        animateUp2()
+        }
+        
+        if tracker.amplitude <= 0.1 {
+            animateDown2()
+        }
+        
+        if tracker.amplitude > 0.3 {
+            animateUp3()
+        }
+        
+        if tracker.amplitude <= 0.3 {
+            animateDown3()
+        }
+        
+        if tracker.amplitude > 0.5 {
+            animateUp4()
+        }
+        
+        if tracker.amplitude <= 0.5 {
+            animateDown4()
+        }
+        
+        if tracker.amplitude > 0.7 {
+            animateUp5()
+        }
+        
+        if tracker.amplitude <= 0.7 {
+            animateDown5()
+        }
         
     }
     
@@ -307,11 +344,70 @@ class MiniChamberVC: UIViewController {
         }
     }
     
+    func animateUp2() {
+        if wave2.alpha < 0.5 {
+            UIView.animate(withDuration: 0, animations: {
+                self.wave2.alpha = 1})
+        }
+    }
+    
+    func animateDown2() {
+        if wave2.alpha > 0.5 {
+            UIView.animate(withDuration: 0, animations: {
+                self.wave2.alpha = 0})
+        }
+    }
+    
+    
+    func animateUp3() {
+        if wave3.alpha < 0.5 {
+            UIView.animate(withDuration: 0, animations: {
+                self.wave3.alpha = 1})
+        }
+    }
+    
+    func animateDown3() {
+        if wave3.alpha > 0.5 {
+            UIView.animate(withDuration: 0, animations: {
+                self.wave3.alpha = 0})
+        }
+    }
+    
+    func animateUp4() {
+        if wave4.alpha < 0.5 {
+            UIView.animate(withDuration: 0, animations: {
+                self.wave4.alpha = 1})
+        }
+    }
+    
+    func animateDown4() {
+        if wave4.alpha > 0.5 {
+            UIView.animate(withDuration: 0, animations: {
+                self.wave4.alpha = 0})
+        }
+    }
+    
+    func animateUp5() {
+        if wave5.alpha < 0.5 {
+            UIView.animate(withDuration: 0, animations: {
+                self.wave5.alpha = 1})
+        }
+    }
+    
+    func animateDown5() {
+        if wave5.alpha > 0.5 {
+            UIView.animate(withDuration: 0, animations: {
+                self.wave5.alpha = 0})
+        }
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
     
     
     /*
