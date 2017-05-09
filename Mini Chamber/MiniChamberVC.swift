@@ -97,6 +97,12 @@ class MiniChamberVC: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        wave1.alpha = 0
+        wave2.alpha = 0
+        wave3.alpha = 0
+        wave4.alpha = 0
+        wave5.alpha = 0
+        
         closeButton.layer.borderWidth = 1.5
         closeButton.layer.borderColor = UIColor.lightGray.cgColor
 
@@ -151,12 +157,6 @@ class MiniChamberVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        wave1.alpha = 0
-        wave2.alpha = 0
-        wave3.alpha = 0
-        wave4.alpha = 0
-        wave5.alpha = 0
-        
         
         AudioKit.output = output
         AudioKit.start()
@@ -193,27 +193,27 @@ class MiniChamberVC: UIViewController {
             animateDown2()
         }
         
-        if tracker.amplitude > 0.3 {
+        if tracker.amplitude > 0.2 {
             animateUp3()
         }
         
-        if tracker.amplitude <= 0.3 {
+        if tracker.amplitude <= 0.2 {
             animateDown3()
         }
         
-        if tracker.amplitude > 0.5 {
+        if tracker.amplitude > 0.3 {
             animateUp4()
         }
         
-        if tracker.amplitude <= 0.5 {
+        if tracker.amplitude <= 0.3 {
             animateDown4()
         }
         
-        if tracker.amplitude > 0.7 {
+        if tracker.amplitude > 0.4 {
             animateUp5()
         }
         
-        if tracker.amplitude <= 0.7 {
+        if tracker.amplitude <= 0.4 {
             animateDown5()
         }
         
