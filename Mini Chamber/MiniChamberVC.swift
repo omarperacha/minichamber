@@ -19,6 +19,17 @@ class MiniChamberVC: UIViewController {
     
     @IBOutlet weak var closeButton: RoundButton!
     
+    
+    @IBOutlet weak var wave1: UIImageView!
+    
+    @IBOutlet weak var wave2: UIImageView!
+    
+    @IBOutlet weak var wave3: UIImageView!
+    
+    @IBOutlet weak var wave4: UIImageView!
+    
+    @IBOutlet weak var wave5: UIImageView!
+    
     @IBAction func dismissVC(_ sender: Any) {
         self.dismiss(animated: false, completion: {})
         AudioKit.stop()
@@ -159,7 +170,16 @@ class MiniChamberVC: UIViewController {
                 print(lastFreq)
                 theBusiness()
             }
+        
+            animateUp1()
         }
+        
+        
+        if tracker.amplitude <= 0.01 {
+        animateDown1()
+        }
+        
+        
     }
     
     func theBusiness() {
@@ -270,6 +290,20 @@ class MiniChamberVC: UIViewController {
                                                                     DispatchQueue.main.asyncAfter(deadline: .now() + sus, execute: {
                                                                         self.env14!.stop()})
                                                                     
+        }
+    }
+    
+        func animateUp1() {
+            if wave1.alpha < 0.5 {
+                UIView.animate(withDuration: 0, animations: {
+                    self.wave1.alpha = 1})
+            }
+        }
+    
+    func animateDown1() {
+        if wave1.alpha > 0.5 {
+            UIView.animate(withDuration: 0, animations: {
+                self.wave1.alpha = 0})
         }
     }
     

@@ -9,16 +9,28 @@
 import UIKit
 
 class HelpPageVC: UIViewController {
+    
+    
+    @IBOutlet weak var xButton: RoundButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        xButton.layer.borderWidth = 1.5
+        xButton.layer.borderColor = UIColor.lightGray.cgColor
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    @IBAction func dismiss(_ sender: Any) {
+        self.dismiss(animated: false, completion: {})
     }
     
 
