@@ -8,8 +8,12 @@
 
 import UIKit
 import AudioKit
+import AVFoundation
 
 class RecordVC: UIViewController {
+    
+    var audioRecorder:AVAudioRecorder!
+    var error: NSError?
 
     override var prefersStatusBarHidden: Bool {
         return true
@@ -131,6 +135,7 @@ class RecordVC: UIViewController {
         AudioKit.output = output
         AudioKit.start()
         Timer.scheduledTimer(timeInterval: 0.7, target: self, selector: #selector(RecordVC.initiate), userInfo: nil, repeats: true)
+        record()
     }
     
     func initiate(){
@@ -260,6 +265,51 @@ class RecordVC: UIViewController {
         }
     }
     
+    
+    func record(){
+        let audioSession:AVAudioSession = AVAudioSession.sharedInstance()
+        try! audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
+        try! audioSession.setActive(true)
+        
+        let documents = NSSearchPathForDirectoriesInDomains( FileManager.SearchPathDirectory.documentDirectory,  FileManager.SearchPathDomainMask.userDomainMask, true)[0] as NSString
+        let str =  documents.appendingPathComponent("recordTest.caf")
+        let url = NSURL.fileURL(withPath: str as String)
+        
+        let recordSettings = [AVFormatIDKey:kAudioFormatAppleIMA4,
+                              AVSampleRateKey:44100.0,
+                              AVNumberOfChannelsKey:2,AVEncoderBitRateKey:12800,
+                              AVLinearPCMBitDepthKey:16,
+                              AVEncoderAudioQualityKey:AVAudioQuality.max.rawValue] as [String : Any]
+        
+        print("url : \(url)")
+        
+        try! audioRecorder = AVAudioRecorder(url:url, settings: recordSettings)
+        if let e = error {
+            print(e.localizedDescription)
+        } else {
+            audioRecorder.record()
+        }
+    }
+    
+    
+    @IBAction func dismiss(_ sender: Any) {
+        self.dismiss(animated: false, completion: {})
+        AudioKit.stop()
+       stopRecording(success: true)
+    }
+    
+    
+    func stopRecording(success: Bool){
+    audioRecorder.stop()
+    audioRecorder = nil
+    
+    if success {
+    print("Recording finished successfully.")
+    } else {
+    print("Recording failed :(")
+        }
+    }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

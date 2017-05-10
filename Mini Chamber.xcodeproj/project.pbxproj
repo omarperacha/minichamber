@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		593D3C0C1EC36A0800D77847 /* Add Folder-50 red.png in Resources */ = {isa = PBXBuildFile; fileRef = 593D3C0A1EC36A0800D77847 /* Add Folder-50 red.png */; };
+		593D3C0D1EC36A0800D77847 /* Folder-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 593D3C0B1EC36A0800D77847 /* Folder-50.png */; };
+		593D3C0F1EC36F3600D77847 /* DocPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593D3C0E1EC36F3600D77847 /* DocPageViewController.swift */; };
 		594A55251E81517B006CC5EE /* MiniChamberVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594A55241E81517B006CC5EE /* MiniChamberVC.swift */; };
 		594A55271E817D75006CC5EE /* MiniChamber Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 594A55261E817D75006CC5EE /* MiniChamber Background.png */; };
 		594A55291E817D89006CC5EE /* lora in Resources */ = {isa = PBXBuildFile; fileRef = 594A55281E817D89006CC5EE /* lora */; };
@@ -60,6 +63,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		593D3C0A1EC36A0800D77847 /* Add Folder-50 red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Add Folder-50 red.png"; sourceTree = "<group>"; };
+		593D3C0B1EC36A0800D77847 /* Folder-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Folder-50.png"; sourceTree = "<group>"; };
+		593D3C0E1EC36F3600D77847 /* DocPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocPageViewController.swift; sourceTree = "<group>"; };
 		594A55241E81517B006CC5EE /* MiniChamberVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniChamberVC.swift; sourceTree = "<group>"; };
 		594A55261E817D75006CC5EE /* MiniChamber Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MiniChamber Background.png"; sourceTree = "<group>"; };
 		594A55281E817D89006CC5EE /* lora */ = {isa = PBXFileReference; lastKnownFileType = folder; path = lora; sourceTree = "<group>"; };
@@ -144,8 +150,11 @@
 				59F147461E648A2200864723 /* ViewController.swift */,
 				594A55241E81517B006CC5EE /* MiniChamberVC.swift */,
 				596747AE1EA137E6001529FA /* RecordVC.swift */,
+				593D3C0E1EC36F3600D77847 /* DocPageViewController.swift */,
 				594A55281E817D89006CC5EE /* lora */,
 				594A55261E817D75006CC5EE /* MiniChamber Background.png */,
+				593D3C0A1EC36A0800D77847 /* Add Folder-50 red.png */,
+				593D3C0B1EC36A0800D77847 /* Folder-50.png */,
 				59F147481E648A2700864723 /* Main.storyboard */,
 				5965A8411EC0D12C001B7721 /* HelpPageVC.swift */,
 				594A552A1E819481006CC5EE /* OP presents II.png */,
@@ -285,8 +294,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				593D3C0C1EC36A0800D77847 /* Add Folder-50 red.png in Resources */,
 				594A55271E817D75006CC5EE /* MiniChamber Background.png in Resources */,
 				5958C4DB1E8BFD78008D7767 /* Headphone Icon 4.png in Resources */,
+				593D3C0D1EC36A0800D77847 /* Folder-50.png in Resources */,
 				599054901EC21FE500F9EC9C /* wave 1.png in Resources */,
 				594A55311E819874006CC5EE /* Mini Chamber.png in Resources */,
 				594A55291E817D89006CC5EE /* lora in Resources */,
@@ -319,6 +330,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				596747AF1EA137E6001529FA /* RecordVC.swift in Sources */,
+				593D3C0F1EC36F3600D77847 /* DocPageViewController.swift in Sources */,
 				59D6AA021E953C6F0049DA8E /* RoundButton.swift in Sources */,
 				5965A8421EC0D12C001B7721 /* HelpPageVC.swift in Sources */,
 				59F147471E648A2200864723 /* ViewController.swift in Sources */,

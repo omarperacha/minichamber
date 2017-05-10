@@ -23,6 +23,9 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var QButton: RoundButton!
     
+    @IBOutlet weak var DocButton: RoundButton!
+   
+    
     var fadeIndex : Float = 0.5 {
         didSet {
             if fadeIndex < 0.5 {
@@ -54,6 +57,9 @@ class ViewController: UIViewController {
         
         QButton.layer.borderWidth = 1.5
         QButton.layer.borderColor = UIColor.black.cgColor
+        
+        DocButton.layer.borderWidth = 1.5
+        DocButton.layer.borderColor = UIColor.black.cgColor
         
         HeadphoneIcon.alpha = 0
         fadeIndex = 0
