@@ -14,6 +14,7 @@ class RecordVC: UIViewController {
     
     var audioRecorder:AVAudioRecorder!
     var error: NSError?
+    var timeStamp: String?
 
     override var prefersStatusBarHidden: Bool {
         return true
@@ -80,6 +81,19 @@ class RecordVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        //get timestamp
+        let date = Date()
+        let calendar = Calendar.current
+        
+        let year = calendar.component(.year, from: date)
+        let month = calendar.component(.month, from: date)
+        let day = calendar.component(.day, from: date)
+        let hour = calendar.component(.hour, from: date)
+        let minutes = calendar.component(.minute, from: date)
+        let seconds = calendar.component(.second, from: date)
+        timeStamp = "\(hour):\(minutes):\(seconds)-\(day)-\(month)-\(year)"
+        print(timeStamp!)
         
         //MARK - SET UP OSCILLATORS
         s1.start(); s2.start(); s3.start(); s4.start(); s5.start(); s6.start()
@@ -272,7 +286,7 @@ class RecordVC: UIViewController {
         try! audioSession.setActive(true)
         
         let documents = NSSearchPathForDirectoriesInDomains( FileManager.SearchPathDirectory.documentDirectory,  FileManager.SearchPathDomainMask.userDomainMask, true)[0] as NSString
-        let str =  documents.appendingPathComponent("recordTest.caf")
+        let str =  documents.appendingPathComponent("\(timeStamp!)_MiniChamberV1.caf")
         let url = NSURL.fileURL(withPath: str as String)
         
         let recordSettings = [AVFormatIDKey:kAudioFormatAppleIMA4,
