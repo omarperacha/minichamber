@@ -44,26 +44,26 @@ class MiniChamberVC: UIViewController {
     let sus = 12.0
     
     //MARK - DECLARE OSCILLATORS
-    var s1 = AKOscillator()
-    var s2 = AKOscillator()
+    var s1 = HumOsc()
+    var s2 = HumOsc()
     
-    var s3 = AKOscillator()
-    var s4 = AKOscillator()
+    var s3 = HumOsc()
+    var s4 = HumOsc()
     
-    var s5 = AKOscillator()
-    var s6 = AKOscillator()
+    var s5 = HumOsc()
+    var s6 = HumOsc()
     
-    var s7 = AKOscillator()
-    var s8 = AKOscillator()
+    var s7 = HumOsc()
+    var s8 = HumOsc()
     
-    var s9 = AKOscillator()
-    var s10 = AKOscillator()
+    var s9 = HumOsc()
+    var s10 = HumOsc()
     
-    var s11 = AKOscillator()
-    var s12 = AKOscillator()
+    var s11 = HumOsc()
+    var s12 = HumOsc()
     
-    var s13 = AKOscillator()
-    var s14 = AKOscillator()
+    var s13 = HumOsc()
+    var s14 = HumOsc()
     
     
     //MARK - DECLARE ENVELOPES
@@ -88,8 +88,31 @@ class MiniChamberVC: UIViewController {
     var env13 : AKAmplitudeEnvelope?
     var env14 : AKAmplitudeEnvelope?
     
+    //MARK - Declare Mixers for HumOsc Partials
+    var m1 = AKMixer()
+    var m2 = AKMixer()
     
+    var m3 = AKMixer()
+    var m4 = AKMixer()
     
+    var m5 = AKMixer()
+    var m6 = AKMixer()
+    
+    var m7 = AKMixer()
+    var m8 = AKMixer()
+    
+    var m9 = AKMixer()
+    var m10 = AKMixer()
+    
+    var m11 = AKMixer()
+    var m12 = AKMixer()
+    
+    var m13 = AKMixer()
+    var m14 = AKMixer()
+    
+    var filtMix = AKMixer()
+    
+    var filter : AKLowPassFilter?
     
     var output = AKMixer()
     
@@ -112,6 +135,27 @@ class MiniChamberVC: UIViewController {
         s7.start(); s8.start(); s9.start(); s10.start(); s11.start(); s12.start()
         s13.start(); s14.start()
         
+        //MARK - SET UP PARTIAL MIXERS
+        m1 = AKMixer(s1, s1.partial1, s1.partial2, s1.partial3, s1.partial4, s1.partial5)
+        m2 = AKMixer(s2, s2.partial1, s2.partial2, s2.partial3, s2.partial4, s2.partial5)
+        
+        m3 = AKMixer(s3, s3.partial1, s3.partial2, s3.partial3, s3.partial4, s3.partial5)
+        m4 = AKMixer(s4, s4.partial1, s4.partial2, s4.partial3, s4.partial4, s4.partial5)
+
+        m5 = AKMixer(s5, s5.partial1, s5.partial2, s5.partial3, s5.partial4, s5.partial5)
+        m6 = AKMixer(s6, s6.partial1, s6.partial2, s6.partial3, s6.partial4, s6.partial5)
+        
+        m7 = AKMixer(s7, s7.partial1, s7.partial2, s7.partial3, s7.partial4, s7.partial5)
+        m8 = AKMixer(s8, s8.partial1, s8.partial2, s8.partial3, s8.partial4, s8.partial5)
+        
+        m9 = AKMixer(s9, s9.partial1, s9.partial2, s9.partial3, s9.partial4, s9.partial5)
+        m10 = AKMixer(s10, s10.partial1, s10.partial2, s10.partial3, s10.partial4, s10.partial5)
+
+        m11 = AKMixer(s11, s11.partial1, s11.partial2, s11.partial3, s11.partial4, s11.partial5)
+        m12 = AKMixer(s12, s12.partial1, s12.partial2, s12.partial3, s12.partial4, s12.partial5)
+        
+        m13 = AKMixer(s13, s13.partial1, s13.partial2, s13.partial3, s13.partial4, s13.partial5)
+        m14 = AKMixer(s14, s14.partial1, s14.partial2, s14.partial3, s14.partial4, s14.partial5)
         
         
         tracker.start()
@@ -121,36 +165,36 @@ class MiniChamberVC: UIViewController {
         
         
         //MARK - SET UP ENVELOPES
-        env1 = AKAmplitudeEnvelope(s1, attackDuration: 1, decayDuration: 6, sustainLevel: 0.7, releaseDuration: 0.5)
-        env2 = AKAmplitudeEnvelope(s2, attackDuration: 1, decayDuration: 6, sustainLevel: 0.7, releaseDuration: 0.5)
+        env1 = AKAmplitudeEnvelope(m1, attackDuration: 1, decayDuration: 6, sustainLevel: 0.7, releaseDuration: 2)
+        env2 = AKAmplitudeEnvelope(m2, attackDuration: 1, decayDuration: 6, sustainLevel: 0.7, releaseDuration: 2)
         
-        env3 = AKAmplitudeEnvelope(s3, attackDuration: 1, decayDuration: 6, sustainLevel: 0.7, releaseDuration: 0.5)
-        env4 = AKAmplitudeEnvelope(s4, attackDuration: 1, decayDuration: 6, sustainLevel: 0.7, releaseDuration: 0.5)
-        env5 = AKAmplitudeEnvelope(s5, attackDuration: 1, decayDuration: 6, sustainLevel: 0.7, releaseDuration: 0.5)
-        env6 = AKAmplitudeEnvelope(s6, attackDuration: 1, decayDuration: 6, sustainLevel: 0.7, releaseDuration: 0.5)
+        env3 = AKAmplitudeEnvelope(m3, attackDuration: 1, decayDuration: 6, sustainLevel: 0.7, releaseDuration: 2)
+        env4 = AKAmplitudeEnvelope(m4, attackDuration: 1, decayDuration: 6, sustainLevel: 0.7, releaseDuration: 2)
+        env5 = AKAmplitudeEnvelope(m5, attackDuration: 1, decayDuration: 6, sustainLevel: 0.7, releaseDuration: 2)
+        env6 = AKAmplitudeEnvelope(m6, attackDuration: 1, decayDuration: 6, sustainLevel: 0.7, releaseDuration: 2)
         
-        env7 = AKAmplitudeEnvelope(s7, attackDuration: 1, decayDuration: 6, sustainLevel: 0.7, releaseDuration: 0.5)
-        env8 = AKAmplitudeEnvelope(s8, attackDuration: 1, decayDuration: 6, sustainLevel: 0.7, releaseDuration: 0.5)
+        env7 = AKAmplitudeEnvelope(m7, attackDuration: 1, decayDuration: 6, sustainLevel: 0.7, releaseDuration: 2)
+        env8 = AKAmplitudeEnvelope(m8, attackDuration: 1, decayDuration: 6, sustainLevel: 0.7, releaseDuration: 2)
         
-        env9 = AKAmplitudeEnvelope(s9, attackDuration: 1, decayDuration: 6, sustainLevel: 0.7, releaseDuration: 0.5)
-        env10 = AKAmplitudeEnvelope(s10, attackDuration: 1, decayDuration: 6, sustainLevel: 0.7, releaseDuration: 0.5)
+        env9 = AKAmplitudeEnvelope(m9, attackDuration: 1, decayDuration: 6, sustainLevel: 0.7, releaseDuration: 2)
+        env10 = AKAmplitudeEnvelope(m10, attackDuration: 1, decayDuration: 6, sustainLevel: 0.7, releaseDuration: 2)
         
-        env11 = AKAmplitudeEnvelope(s11, attackDuration: 1, decayDuration: 6, sustainLevel: 0.7, releaseDuration: 0.5)
-        env12 = AKAmplitudeEnvelope(s12, attackDuration: 1, decayDuration: 6, sustainLevel: 0.7, releaseDuration: 0.5)
+        env11 = AKAmplitudeEnvelope(m11, attackDuration: 1, decayDuration: 6, sustainLevel: 0.7, releaseDuration: 2)
+        env12 = AKAmplitudeEnvelope(m12, attackDuration: 1, decayDuration: 6, sustainLevel: 0.7, releaseDuration: 2)
         
-        env13 = AKAmplitudeEnvelope(s13, attackDuration: 1, decayDuration: 6, sustainLevel: 0.7, releaseDuration: 0.5)
-        env14 = AKAmplitudeEnvelope(s14, attackDuration: 1, decayDuration: 6, sustainLevel: 0.7, releaseDuration: 0.5)
-        
-        
+        env13 = AKAmplitudeEnvelope(m13, attackDuration: 1, decayDuration: 6, sustainLevel: 0.7, releaseDuration: 2)
+        env14 = AKAmplitudeEnvelope(m14, attackDuration: 1, decayDuration: 6, sustainLevel: 0.7, releaseDuration: 2)
         
         
+        filtMix = AKMixer(env1!, env2!, env3!, env4!, env5!, env6!,
+                          env7!, env8!,env9!, env10!, env11!, env12!,
+                          env13!, env14!)
         
+        filter = AKLowPassFilter(filtMix, cutoffFrequency: 440)
         
-        output = AKMixer(env1!, env2!, env3!, env4!, env5!, env6!,
-                         env7!, env8!,env9!, env10!, env11!, env12!,
-                         env13!, env14!,
+        output = AKMixer(filter!,
                          input, tracker)
-        output.volume = 0.08
+        output.volume = 0.04
     }
     
     
@@ -185,35 +229,35 @@ class MiniChamberVC: UIViewController {
         animateDown1()
         }
         
-        if tracker.amplitude > 0.1 {
+        if tracker.amplitude > 0.025 {
         animateUp2()
         }
         
-        if tracker.amplitude <= 0.1 {
+        if tracker.amplitude <= 0.025 {
             animateDown2()
         }
         
-        if tracker.amplitude > 0.2 {
+        if tracker.amplitude > 0.05 {
             animateUp3()
         }
         
-        if tracker.amplitude <= 0.2 {
+        if tracker.amplitude <= 0.05 {
             animateDown3()
         }
         
-        if tracker.amplitude > 0.3 {
+        if tracker.amplitude > 0.08 {
             animateUp4()
         }
         
-        if tracker.amplitude <= 0.3 {
+        if tracker.amplitude <= 0.08 {
             animateDown4()
         }
         
-        if tracker.amplitude > 0.4 {
+        if tracker.amplitude > 0.13 {
             animateUp5()
         }
         
-        if tracker.amplitude <= 0.4 {
+        if tracker.amplitude <= 0.13 {
             animateDown5()
         }
         
