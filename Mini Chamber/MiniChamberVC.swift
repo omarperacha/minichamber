@@ -38,10 +38,13 @@ class MiniChamberVC: UIViewController {
     let lower = (34.0/36.0)
     let upper = (36.0/34.0)
     var lastFreq = 0.0
+    var freq1 = 0.0
+    var freq2 = 0.0
+    var freqCount = 0
     
     let tracker = AKFrequencyTracker(input, hopSize: 512, peakCount: 1)
     
-    let sus = 12.0
+    let sus = 10.0
     
     //MARK - DECLARE OSCILLATORS
     var s1 = HumOsc()
@@ -165,32 +168,32 @@ class MiniChamberVC: UIViewController {
         
         
         //MARK - SET UP ENVELOPES
-        env1 = AKAmplitudeEnvelope(m1, attackDuration: 1, decayDuration: 6, sustainLevel: 0.7, releaseDuration: 2)
-        env2 = AKAmplitudeEnvelope(m2, attackDuration: 1, decayDuration: 6, sustainLevel: 0.7, releaseDuration: 2)
+        env1 = AKAmplitudeEnvelope(m1, attackDuration: 1.5, decayDuration: 6, sustainLevel: 0.7, releaseDuration: 2)
+        env2 = AKAmplitudeEnvelope(m2, attackDuration: 1.5, decayDuration: 6, sustainLevel: 0.7, releaseDuration: 2)
         
-        env3 = AKAmplitudeEnvelope(m3, attackDuration: 1, decayDuration: 6, sustainLevel: 0.7, releaseDuration: 2)
-        env4 = AKAmplitudeEnvelope(m4, attackDuration: 1, decayDuration: 6, sustainLevel: 0.7, releaseDuration: 2)
-        env5 = AKAmplitudeEnvelope(m5, attackDuration: 1, decayDuration: 6, sustainLevel: 0.7, releaseDuration: 2)
-        env6 = AKAmplitudeEnvelope(m6, attackDuration: 1, decayDuration: 6, sustainLevel: 0.7, releaseDuration: 2)
+        env3 = AKAmplitudeEnvelope(m3, attackDuration: 1.5, decayDuration: 6, sustainLevel: 0.7, releaseDuration: 2)
+        env4 = AKAmplitudeEnvelope(m4, attackDuration: 1.5, decayDuration: 6, sustainLevel: 0.7, releaseDuration: 2)
+        env5 = AKAmplitudeEnvelope(m5, attackDuration: 1.5, decayDuration: 6, sustainLevel: 0.7, releaseDuration: 2)
+        env6 = AKAmplitudeEnvelope(m6, attackDuration: 1.5, decayDuration: 6, sustainLevel: 0.7, releaseDuration: 2)
         
-        env7 = AKAmplitudeEnvelope(m7, attackDuration: 1, decayDuration: 6, sustainLevel: 0.7, releaseDuration: 2)
-        env8 = AKAmplitudeEnvelope(m8, attackDuration: 1, decayDuration: 6, sustainLevel: 0.7, releaseDuration: 2)
+        env7 = AKAmplitudeEnvelope(m7, attackDuration: 1.5, decayDuration: 6, sustainLevel: 0.7, releaseDuration: 2)
+        env8 = AKAmplitudeEnvelope(m8, attackDuration: 1.5, decayDuration: 6, sustainLevel: 0.7, releaseDuration: 2)
         
-        env9 = AKAmplitudeEnvelope(m9, attackDuration: 1, decayDuration: 6, sustainLevel: 0.7, releaseDuration: 2)
-        env10 = AKAmplitudeEnvelope(m10, attackDuration: 1, decayDuration: 6, sustainLevel: 0.7, releaseDuration: 2)
+        env9 = AKAmplitudeEnvelope(m9, attackDuration: 1.5, decayDuration: 6, sustainLevel: 0.7, releaseDuration: 2)
+        env10 = AKAmplitudeEnvelope(m10, attackDuration: 1.5, decayDuration: 6, sustainLevel: 0.7, releaseDuration: 2)
         
-        env11 = AKAmplitudeEnvelope(m11, attackDuration: 1, decayDuration: 6, sustainLevel: 0.7, releaseDuration: 2)
-        env12 = AKAmplitudeEnvelope(m12, attackDuration: 1, decayDuration: 6, sustainLevel: 0.7, releaseDuration: 2)
+        env11 = AKAmplitudeEnvelope(m11, attackDuration: 1.5, decayDuration: 6, sustainLevel: 0.7, releaseDuration: 2)
+        env12 = AKAmplitudeEnvelope(m12, attackDuration: 1.5, decayDuration: 6, sustainLevel: 0.7, releaseDuration: 2)
         
-        env13 = AKAmplitudeEnvelope(m13, attackDuration: 1, decayDuration: 6, sustainLevel: 0.7, releaseDuration: 2)
-        env14 = AKAmplitudeEnvelope(m14, attackDuration: 1, decayDuration: 6, sustainLevel: 0.7, releaseDuration: 2)
+        env13 = AKAmplitudeEnvelope(m13, attackDuration: 1.5, decayDuration: 6, sustainLevel: 0.7, releaseDuration: 2)
+        env14 = AKAmplitudeEnvelope(m14, attackDuration: 1.5, decayDuration: 6, sustainLevel: 0.7, releaseDuration: 2)
         
         
         filtMix = AKMixer(env1!, env2!, env3!, env4!, env5!, env6!,
                           env7!, env8!,env9!, env10!, env11!, env12!,
                           env13!, env14!)
         
-        filter = AKLowPassFilter(filtMix, cutoffFrequency: 440)
+        filter = AKLowPassFilter(filtMix, cutoffFrequency: 550)
         
         output = AKMixer(filter!,
                          input, tracker)
@@ -204,28 +207,46 @@ class MiniChamberVC: UIViewController {
         
         AudioKit.output = output
         AudioKit.start()
-        Timer.scheduledTimer(timeInterval: 0.7, target: self, selector: #selector(MiniChamberVC.initiate), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: 0.25, target: self, selector: #selector(MiniChamberVC.initiate), userInfo: nil, repeats: true)
     }
     
     func initiate(){
-        if tracker.amplitude > 0.01 {
+        
+        print("count = \(freqCount)")
+        
+        if tracker.amplitude > 0.02 {
             
-            if tracker.frequency < (lower * lastFreq) {
-                lastFreq = tracker.frequency
-                print(lastFreq)
-                theBusiness()
+            if freqCount == 2 {
+                if tracker.frequency > (lower * freq2) && tracker.frequency < (upper * freq2) {
+                    lastFreq = tracker.frequency
+                    freqCount = 0
+                    print("count = \(freqCount)")
+                    theBusiness()
+                } else {freqCount = 0}
             }
-            if tracker.frequency > (upper * lastFreq) {
-                lastFreq = tracker.frequency
-                print(lastFreq)
-                theBusiness()
+            
+            if freqCount == 1{
+                if tracker.frequency > (lower * freq1) && tracker.frequency < (upper * freq1) {
+                    freq2 = tracker.frequency
+                    freqCount = 2
+                    print("count = \(freqCount)")
+                } else {freqCount = 0}
             }
+          
+            if freqCount == 0{
+                if tracker.frequency < (lower * lastFreq) || tracker.frequency > (upper * lastFreq) {
+                    freq1 = tracker.frequency
+                    freqCount = 1
+                    print("count = \(freqCount)")
+                }
+            }
+            
         
             animateUp1()
         }
         
         
-        if tracker.amplitude <= 0.01 {
+        if tracker.amplitude <= 0.02 {
         animateDown1()
         }
         

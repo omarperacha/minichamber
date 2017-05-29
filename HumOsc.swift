@@ -20,11 +20,11 @@ public class HumOsc: AKOscillator {
     
     override public var frequency: Double {
         didSet {
-            partial1.frequency = super.frequency*2*random(0.995, 1.005)
-            partial2.frequency = super.frequency*3*random(0.995, 1.005)
-            partial3.frequency = super.frequency*4*random(0.995, 1.005)
-            partial4.frequency = super.frequency*6*random(0.995, 1.005)
-            partial5.frequency = super.frequency*7*random(0.995, 1.005)
+            partial1.frequency = super.frequency*2
+            partial2.frequency = super.frequency*3
+            partial3.frequency = super.frequency*4
+            partial4.frequency = super.frequency*6
+            partial5.frequency = super.frequency*7
         }
     }
     
