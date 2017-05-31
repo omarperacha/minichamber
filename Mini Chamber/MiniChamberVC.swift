@@ -13,6 +13,21 @@ let input = AKMicrophone()
 
 class MiniChamberVC: UIViewController {
     
+    func audioRouteChangeListener(notification:NSNotification) {
+        let audioRouteChangeReason = notification.userInfo![AVAudioSessionRouteChangeReasonKey] as! UInt
+        
+        switch audioRouteChangeReason {
+        case AVAudioSessionRouteChangeReason.newDeviceAvailable.rawValue:
+            AudioKit.stop()
+            self.dismiss(animated: false, completion: {})
+        case AVAudioSessionRouteChangeReason.oldDeviceUnavailable.rawValue:
+            AudioKit.stop()
+            self.dismiss(animated: false, completion: {})
+        default:
+            break
+        }
+    }
+    
     override var prefersStatusBarHidden: Bool {
         return true
     }
@@ -41,6 +56,7 @@ class MiniChamberVC: UIViewController {
     var freq1 = 0.0
     var freq2 = 0.0
     var freqCount = 0
+    var timeStamp: String?
     
     let tracker = AKFrequencyTracker(input, hopSize: 512, peakCount: 1)
     
@@ -131,6 +147,18 @@ class MiniChamberVC: UIViewController {
         
         closeButton.layer.borderWidth = 1.5
         closeButton.layer.borderColor = UIColor.lightGray.cgColor
+        
+        //get timestamp
+        let date = Date()
+        let calendar = Calendar.current
+        
+        let year = calendar.component(.year, from: date)
+        let month = calendar.component(.month, from: date)
+        let day = calendar.component(.day, from: date)
+        let hour = calendar.component(.hour, from: date)
+        let minutes = calendar.component(.minute, from: date)
+        let seconds = calendar.component(.second, from: date)
+        timeStamp = "\(hour):\(minutes):\(seconds)-\(day)-\(month)-\(year)"
 
         
         //MARK - SET UP OSCILLATORS

@@ -12,9 +12,14 @@ import AVFoundation
 
 class RecordVC: UIViewController {
     
-    var audioRecorder:AVAudioRecorder!
+    //All recording-related variables
+    
+    var audioRecorder: AKNodeRecorder!
     var error: NSError?
     var timeStamp: String?
+    var AudioFile: AKAudioFile?
+    
+    
 
     override var prefersStatusBarHidden: Bool {
         return true
@@ -93,7 +98,15 @@ class RecordVC: UIViewController {
         let minutes = calendar.component(.minute, from: date)
         let seconds = calendar.component(.second, from: date)
         timeStamp = "\(hour):\(minutes):\(seconds)-\(day)-\(month)-\(year)"
-        print(timeStamp!)
+
+        let documents = NSSearchPathForDirectoriesInDomains( FileManager.SearchPathDirectory.documentDirectory,  FileManager.SearchPathDomainMask.userDomainMask, true)[0] as NSString
+        let str =  documents.appendingPathComponent("\(timeStamp!)_MiniChamberV1.wav")
+        let url = NSURL.fileURL(withPath: str as String)
+        print("url - \(url)")
+        
+        //Setup AudioFile
+        do {AudioFile? = try AKAudioFile(forWriting: url, settings: AKSettings.audioFormat.settings)} catch {print("audiofile creation error")}
+        
         
         //MARK - SET UP OSCILLATORS
         s1.start(); s2.start(); s3.start(); s4.start(); s5.start(); s6.start()
@@ -149,6 +162,8 @@ class RecordVC: UIViewController {
         AudioKit.output = output
         AudioKit.start()
         Timer.scheduledTimer(timeInterval: 0.7, target: self, selector: #selector(RecordVC.initiate), userInfo: nil, repeats: true)
+        //Set up recorder
+        do {audioRecorder = try AKNodeRecorder(node: output, file: AudioFile)} catch {print("recorder creation error")}
         record()
     }
     
@@ -281,27 +296,11 @@ class RecordVC: UIViewController {
     
     
     func record(){
-        let audioSession:AVAudioSession = AVAudioSession.sharedInstance()
-        try! audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
-        try! audioSession.setActive(true)
-        
-        let documents = NSSearchPathForDirectoriesInDomains( FileManager.SearchPathDirectory.documentDirectory,  FileManager.SearchPathDomainMask.userDomainMask, true)[0] as NSString
-        let str =  documents.appendingPathComponent("\(timeStamp!)_MiniChamberV1.caf")
-        let url = NSURL.fileURL(withPath: str as String)
-        
-        let recordSettings = [AVFormatIDKey:kAudioFormatAppleIMA4,
-                              AVSampleRateKey:44100.0,
-                              AVNumberOfChannelsKey:2,AVEncoderBitRateKey:12800,
-                              AVLinearPCMBitDepthKey:16,
-                              AVEncoderAudioQualityKey:AVAudioQuality.max.rawValue] as [String : Any]
-        
-        print("url : \(url)")
-        
-        try! audioRecorder = AVAudioRecorder(url:url, settings: recordSettings)
-        if let e = error {
-            print(e.localizedDescription)
-        } else {
-            audioRecorder.record()
+        do {
+        try audioRecorder.record()
+        }
+        catch {
+            print(error.localizedDescription)
         }
     }
     
@@ -316,6 +315,7 @@ class RecordVC: UIViewController {
     func stopRecording(success: Bool){
     audioRecorder.stop()
     audioRecorder = nil
+    AudioFile = nil
     
     if success {
     print("Recording finished successfully.")
