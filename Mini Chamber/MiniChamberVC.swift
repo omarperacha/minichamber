@@ -28,6 +28,17 @@ class MiniChamberVC: UIViewController {
         }
     }
     
+    //All recording-related variables
+    
+    var audioRecorder: AKNodeRecorder!
+    var timeStamp: String?
+    var AudioFile: AKAudioFile?
+    
+    let settings = [
+        AVNumberOfChannelsKey: 2,
+        AVLinearPCMIsNonInterleaved: false
+        ] as [String : Any]
+    
     override var prefersStatusBarHidden: Bool {
         return true
     }
@@ -48,6 +59,8 @@ class MiniChamberVC: UIViewController {
     @IBAction func dismissVC(_ sender: Any) {
         self.dismiss(animated: false, completion: {})
         AudioKit.stop()
+        if RecordVar == true {
+            stopRecording(success: true)}
     }
     
     let lower = (34.0/36.0)
@@ -56,7 +69,6 @@ class MiniChamberVC: UIViewController {
     var freq1 = 0.0
     var freq2 = 0.0
     var freqCount = 0
-    var timeStamp: String?
     
     let tracker = AKFrequencyTracker(input, hopSize: 512, peakCount: 1)
     
@@ -158,8 +170,8 @@ class MiniChamberVC: UIViewController {
         let hour = calendar.component(.hour, from: date)
         let minutes = calendar.component(.minute, from: date)
         let seconds = calendar.component(.second, from: date)
-        timeStamp = "\(hour):\(minutes):\(seconds)-\(day)-\(month)-\(year)"
-
+        timeStamp = "\(hour).\(minutes).\(seconds)-\(day)-\(month)-\(year)"
+     
         
         //MARK - SET UP OSCILLATORS
         s1.start(); s2.start(); s3.start(); s4.start(); s5.start(); s6.start()
@@ -221,26 +233,35 @@ class MiniChamberVC: UIViewController {
                           env7!, env8!,env9!, env10!, env11!, env12!,
                           env13!, env14!)
         
+        filtMix.volume = 0.04
+        
         filter = AKLowPassFilter(filtMix, cutoffFrequency: 550)
         
         output = AKMixer(filter!,
                          input, tracker)
-        output.volume = 0.04
     }
     
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        let docsurl = NSSearchPathForDirectoriesInDomains( FileManager.SearchPathDirectory.documentDirectory,  FileManager.SearchPathDomainMask.userDomainMask, true)[0] as NSString
+        let str =  docsurl.appendingPathComponent("\(timeStamp!)_MiniChamberV1.wav")
+        let url = NSURL.fileURL(withPath: str as String)
+        
         
         AudioKit.output = output
         AudioKit.start()
         Timer.scheduledTimer(timeInterval: 0.25, target: self, selector: #selector(MiniChamberVC.initiate), userInfo: nil, repeats: true)
+        if RecordVar == true {
+             do {AudioFile = try AKAudioFile(forWriting: url, settings: settings)} catch {print("audiofile creation error")}
+            print("\(String(describing: AudioFile!.fileNamePlusExtension))")
+            do {audioRecorder = try AKNodeRecorder(node: output, file: AudioFile)} catch {print("recorder creation error")}
+            record()
+        }
     }
     
     func initiate(){
-        
-        print("count = \(freqCount)")
         
         if tracker.amplitude > 0.02 {
             
@@ -248,7 +269,6 @@ class MiniChamberVC: UIViewController {
                 if tracker.frequency > (lower * freq2) && tracker.frequency < (upper * freq2) {
                     lastFreq = tracker.frequency
                     freqCount = 0
-                    print("count = \(freqCount)")
                     theBusiness()
                 } else {freqCount = 0}
             }
@@ -257,7 +277,6 @@ class MiniChamberVC: UIViewController {
                 if tracker.frequency > (lower * freq1) && tracker.frequency < (upper * freq1) {
                     freq2 = tracker.frequency
                     freqCount = 2
-                    print("count = \(freqCount)")
                 } else {freqCount = 0}
             }
           
@@ -265,7 +284,6 @@ class MiniChamberVC: UIViewController {
                 if tracker.frequency < (lower * lastFreq) || tracker.frequency > (upper * lastFreq) {
                     freq1 = tracker.frequency
                     freqCount = 1
-                    print("count = \(freqCount)")
                 }
             }
             
@@ -491,6 +509,29 @@ class MiniChamberVC: UIViewController {
         if wave5.alpha > 0.5 {
             UIView.animate(withDuration: 0, animations: {
                 self.wave5.alpha = 0})
+        }
+    }
+    
+    func record(){
+        
+        do {
+            try audioRecorder.record()
+        }
+        catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    func stopRecording(success: Bool){
+        audioRecorder.stop()
+        audioRecorder = nil
+        AudioFile = nil
+        RecordVar = false
+        
+        if success {
+            print("Recording finished successfully.")
+        } else {
+            print("Recording failed :(")
         }
     }
     

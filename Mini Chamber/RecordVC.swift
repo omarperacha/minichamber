@@ -15,9 +15,13 @@ class RecordVC: UIViewController {
     //All recording-related variables
     
     var audioRecorder: AKNodeRecorder!
-    var error: NSError?
     var timeStamp: String?
     var AudioFile: AKAudioFile?
+    
+    let settings = [
+        AVNumberOfChannelsKey: 2,
+        AVLinearPCMIsNonInterleaved: false
+    ] as [String : Any]
     
     
 
@@ -87,6 +91,7 @@ class RecordVC: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        
         //get timestamp
         let date = Date()
         let calendar = Calendar.current
@@ -97,15 +102,15 @@ class RecordVC: UIViewController {
         let hour = calendar.component(.hour, from: date)
         let minutes = calendar.component(.minute, from: date)
         let seconds = calendar.component(.second, from: date)
-        timeStamp = "\(hour):\(minutes):\(seconds)-\(day)-\(month)-\(year)"
+        timeStamp = "\(hour).\(minutes).\(seconds)-\(day)-\(month)-\(year)"
 
-        let documents = NSSearchPathForDirectoriesInDomains( FileManager.SearchPathDirectory.documentDirectory,  FileManager.SearchPathDomainMask.userDomainMask, true)[0] as NSString
-        let str =  documents.appendingPathComponent("\(timeStamp!)_MiniChamberV1.wav")
+        let docsurl = NSSearchPathForDirectoriesInDomains( FileManager.SearchPathDirectory.documentDirectory,  FileManager.SearchPathDomainMask.userDomainMask, true)[0] as NSString
+        let str =  docsurl.appendingPathComponent("\(timeStamp!)_MiniChamberV1.wav")
         let url = NSURL.fileURL(withPath: str as String)
-        print("url - \(url)")
         
         //Setup AudioFile
-        do {AudioFile? = try AKAudioFile(forWriting: url, settings: AKSettings.audioFormat.settings)} catch {print("audiofile creation error")}
+        do {AudioFile = try AKAudioFile(forWriting: url, settings: settings)} catch {print("audiofile creation error")}
+        
         
         
         //MARK - SET UP OSCILLATORS
@@ -161,6 +166,7 @@ class RecordVC: UIViewController {
         
         AudioKit.output = output
         AudioKit.start()
+        print("\(String(describing: AudioFile!.fileNamePlusExtension))")
         Timer.scheduledTimer(timeInterval: 0.7, target: self, selector: #selector(RecordVC.initiate), userInfo: nil, repeats: true)
         //Set up recorder
         do {audioRecorder = try AKNodeRecorder(node: output, file: AudioFile)} catch {print("recorder creation error")}
@@ -296,6 +302,7 @@ class RecordVC: UIViewController {
     
     
     func record(){
+        
         do {
         try audioRecorder.record()
         }

@@ -9,11 +9,18 @@
 import UIKit
 import AudioKit
 
+var RecordVar = false
+
 class ViewController: UIViewController {
     
     override var prefersStatusBarHidden: Bool {
         return true
     }
+    
+    @IBAction func setRecordVar(_ sender: Any) {
+        RecordVar = true
+    }
+    
     
     @IBOutlet weak var FreePlayButton: UIButton!
     
