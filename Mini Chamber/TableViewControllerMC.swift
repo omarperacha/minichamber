@@ -14,7 +14,19 @@ class TableViewControllerMC: UITableViewController {
         return true
     }
     
-    var files: Array<Any>?
+    
+    @IBOutlet weak var footerView: UIView!
+    
+    @IBOutlet weak var xButton: RoundButton!
+    
+    @IBAction func dismiss(_ sender: Any) {
+        self.dismiss(animated: false, completion: {})
+    }
+    
+   
+    
+    var files: [String] = []
+    
     
     // Get the document directory url
     let documentsUrl =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
@@ -22,13 +34,19 @@ class TableViewControllerMC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        xButton.layer.borderWidth = 1.5
+        xButton.layer.borderColor = UIColor.lightGray.cgColor
+        
         do {
             // Get the directory contents urls (including subfolders urls)
             let directoryContents = try FileManager.default.contentsOfDirectory(at: documentsUrl, includingPropertiesForKeys: nil, options: [])
-            files = directoryContents
+            files = directoryContents.map{String(describing: $0)}
         } catch {
             print("didn't work")
         }
+        
+        //print("\(files.count)")
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -36,11 +54,26 @@ class TableViewControllerMC: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Make footerview so it fill up size of the screen
+        // The button is aligned to bottom of the footerview
+        // using autolayout constraints
+        self.tableView.tableFooterView = nil
+        self.footerView.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.tableView.frame.size.height - self.tableView.contentSize.height
+            //- self.footerView.frame.size.height
+        )
+        self.tableView.tableFooterView = self.footerView
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
 
     // MARK: - Table view data source
 
@@ -51,13 +84,13 @@ class TableViewControllerMC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return files!.count
+        return files.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath)
         
-        cell.textLabel?.text = files![indexPath.row] as? String
+        cell.textLabel?.text = files[indexPath.row]
         
         return cell
     }

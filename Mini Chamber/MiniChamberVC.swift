@@ -63,12 +63,24 @@ class MiniChamberVC: UIViewController {
             stopRecording(success: true)}
     }
     
+    @IBOutlet weak var mySwitch: UISwitch!
+    
+    @IBAction func Switch(_ sender: Any) {
+        if mySwitch.isOn {
+            sensitivityMode = true
+        } else {
+            sensitivityMode = false
+        }
+    }
+    
+    
     let lower = (34.0/36.0)
     let upper = (36.0/34.0)
     var lastFreq = 0.0
     var freq1 = 0.0
     var freq2 = 0.0
     var freqCount = 0
+    var sensitivityMode = false
     
     let tracker = AKFrequencyTracker(input, hopSize: 512, peakCount: 1)
     
@@ -263,7 +275,16 @@ class MiniChamberVC: UIViewController {
     
     func initiate(){
         
+        
+        
         if tracker.amplitude > 0.02 {
+            
+            if sensitivityMode == true {
+                if tracker.frequency < (lower * lastFreq) || tracker.frequency > (upper * lastFreq) {
+                    lastFreq = tracker.frequency
+                    theBusiness()
+                }
+            } else {
             
             if freqCount == 2 {
                 if tracker.frequency > (lower * freq2) && tracker.frequency < (upper * freq2) {
@@ -285,7 +306,7 @@ class MiniChamberVC: UIViewController {
                     freq1 = tracker.frequency
                     freqCount = 1
                 }
-            }
+            }}
             
         
             animateUp1()
