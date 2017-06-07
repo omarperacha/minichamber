@@ -182,7 +182,7 @@ class MiniChamberVC: UIViewController {
         let hour = calendar.component(.hour, from: date)
         let minutes = calendar.component(.minute, from: date)
         let seconds = calendar.component(.second, from: date)
-        timeStamp = "\(hour).\(minutes).\(seconds)-\(day)-\(month)-\(year)"
+        timeStamp = "\(day)-\(month)-\(year)_at_\(hour).\(minutes)'\(seconds)"
      
         
         //MARK - SET UP OSCILLATORS
@@ -258,7 +258,7 @@ class MiniChamberVC: UIViewController {
         super.viewDidAppear(animated)
         
         let docsurl = NSSearchPathForDirectoriesInDomains( FileManager.SearchPathDirectory.documentDirectory,  FileManager.SearchPathDomainMask.userDomainMask, true)[0] as NSString
-        let str =  docsurl.appendingPathComponent("\(timeStamp!)_MiniChamberV1.wav")
+        let str =  docsurl.appendingPathComponent("\(timeStamp!)_MiniChamberV1.aiff")
         let url = NSURL.fileURL(withPath: str as String)
         
         
@@ -317,35 +317,35 @@ class MiniChamberVC: UIViewController {
         animateDown1()
         }
         
-        if tracker.amplitude > 0.025 {
+        if tracker.amplitude > 0.03 {
         animateUp2()
         }
         
-        if tracker.amplitude <= 0.025 {
+        if tracker.amplitude <= 0.03 {
             animateDown2()
         }
         
-        if tracker.amplitude > 0.05 {
+        if tracker.amplitude > 0.08 {
             animateUp3()
         }
         
-        if tracker.amplitude <= 0.05 {
+        if tracker.amplitude <= 0.08 {
             animateDown3()
         }
         
-        if tracker.amplitude > 0.08 {
+        if tracker.amplitude > 0.13 {
             animateUp4()
         }
         
-        if tracker.amplitude <= 0.08 {
+        if tracker.amplitude <= 0.13 {
             animateDown4()
         }
         
-        if tracker.amplitude > 0.13 {
+        if tracker.amplitude > 0.2 {
             animateUp5()
         }
         
-        if tracker.amplitude <= 0.13 {
+        if tracker.amplitude <= 0.2 {
             animateDown5()
         }
         

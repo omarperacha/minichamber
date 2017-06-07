@@ -16,7 +16,6 @@
 		594A55311E819874006CC5EE /* Mini Chamber.png in Resources */ = {isa = PBXBuildFile; fileRef = 594A55301E819874006CC5EE /* Mini Chamber.png */; };
 		5958C4DB1E8BFD78008D7767 /* Headphone Icon 4.png in Resources */ = {isa = PBXBuildFile; fileRef = 5958C4DA1E8BFD78008D7767 /* Headphone Icon 4.png */; };
 		5965A8421EC0D12C001B7721 /* HelpPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5965A8411EC0D12C001B7721 /* HelpPageVC.swift */; };
-		596747AF1EA137E6001529FA /* RecordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596747AE1EA137E6001529FA /* RecordVC.swift */; };
 		599054901EC21FE500F9EC9C /* wave 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5990548F1EC21FE500F9EC9C /* wave 1.png */; };
 		599993EE1ED8EF6B00ED852F /* HumOsc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599993ED1ED8EF6B00ED852F /* HumOsc.swift */; };
 		59B8E8D31EE3AE5100EFA3C9 /* TableViewControllerMC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B8E8D21EE3AE5100EFA3C9 /* TableViewControllerMC.swift */; };
@@ -73,7 +72,6 @@
 		594A55301E819874006CC5EE /* Mini Chamber.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Mini Chamber.png"; sourceTree = "<group>"; };
 		5958C4DA1E8BFD78008D7767 /* Headphone Icon 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Headphone Icon 4.png"; sourceTree = "<group>"; };
 		5965A8411EC0D12C001B7721 /* HelpPageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpPageVC.swift; sourceTree = "<group>"; };
-		596747AE1EA137E6001529FA /* RecordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordVC.swift; sourceTree = "<group>"; };
 		5990548F1EC21FE500F9EC9C /* wave 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wave 1.png"; sourceTree = "<group>"; };
 		599993ED1ED8EF6B00ED852F /* HumOsc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HumOsc.swift; sourceTree = "<group>"; };
 		59B8E8D21EE3AE5100EFA3C9 /* TableViewControllerMC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewControllerMC.swift; sourceTree = "<group>"; };
@@ -152,7 +150,6 @@
 				59F147441E648A2200864723 /* AppDelegate.swift */,
 				59F147461E648A2200864723 /* ViewController.swift */,
 				594A55241E81517B006CC5EE /* MiniChamberVC.swift */,
-				596747AE1EA137E6001529FA /* RecordVC.swift */,
 				59B8E8D21EE3AE5100EFA3C9 /* TableViewControllerMC.swift */,
 				5965A8411EC0D12C001B7721 /* HelpPageVC.swift */,
 				594A55281E817D89006CC5EE /* lora */,
@@ -332,7 +329,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				596747AF1EA137E6001529FA /* RecordVC.swift in Sources */,
 				59D6AA021E953C6F0049DA8E /* RoundButton.swift in Sources */,
 				59B8E8D31EE3AE5100EFA3C9 /* TableViewControllerMC.swift in Sources */,
 				5965A8421EC0D12C001B7721 /* HelpPageVC.swift in Sources */,

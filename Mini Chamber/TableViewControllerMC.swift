@@ -26,6 +26,8 @@ class TableViewControllerMC: UITableViewController {
    
     
     var files: [String] = []
+    var fileName: NSString?
+    var finalArray: [String] = []
     
     
     // Get the document directory url
@@ -41,6 +43,12 @@ class TableViewControllerMC: UITableViewController {
             // Get the directory contents urls (including subfolders urls)
             let directoryContents = try FileManager.default.contentsOfDirectory(at: documentsUrl, includingPropertiesForKeys: nil, options: [])
             files = directoryContents.map{String(describing: $0)}
+            for file in files{
+             fileName = file as NSString
+                if fileName?.lastPathComponent != ".DS_Store" {
+                finalArray.append(fileName!.lastPathComponent)
+                }
+            }
         } catch {
             print("didn't work")
         }
@@ -84,13 +92,13 @@ class TableViewControllerMC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return files.count
+        return finalArray.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath)
         
-        cell.textLabel?.text = files[indexPath.row]
+        cell.textLabel?.text = finalArray[indexPath.row]
         
         return cell
     }
