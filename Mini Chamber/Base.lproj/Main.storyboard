@@ -330,7 +330,7 @@
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LabelCell" textLabel="Gpl-Jt-f0Z" style="IBUITableViewCellStyleDefault" id="yOA-cw-4Tq">
-                                <rect key="frame" x="0.0" y="56" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="55.5" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yOA-cw-4Tq" id="i6K-vg-IFb">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
@@ -461,6 +461,9 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="49" id="8OU-Z3-NSL"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="fadeSwitchFunc:" destination="FFH-EJ-Ziq" eventType="valueChanged" id="cjx-Cd-C4e"/>
+                                </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fade Out" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r9O-E4-s5W">
                                 <rect key="frame" x="71.5" y="315" width="177" height="21"/>
@@ -520,6 +523,7 @@
                     </view>
                     <connections>
                         <outlet property="closeButton" destination="6j0-n6-jHI" id="Hcb-yZ-spa"/>
+                        <outlet property="fadeSwitch" destination="6e6-dG-v7o" id="odo-lT-znW"/>
                         <outlet property="mySwitch" destination="cFX-mw-v6H" id="kFr-fg-9RF"/>
                         <outlet property="wave1" destination="TG9-8Q-sFb" id="7Ja-HI-XeD"/>
                         <outlet property="wave2" destination="OVg-ZD-HjP" id="bgu-BL-P3r"/>

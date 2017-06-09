@@ -57,10 +57,13 @@ class MiniChamberVC: UIViewController {
     @IBOutlet weak var wave5: UIImageView!
     
     @IBAction func dismissVC(_ sender: Any) {
+        if fadeOut == true {
+            fade()
+        } else {
         self.dismiss(animated: false, completion: {})
         AudioKit.stop()
         if RecordVar == true {
-            stopRecording(success: true)}
+            stopRecording(success: true)}}
     }
     
     @IBOutlet weak var mySwitch: UISwitch!
@@ -73,6 +76,16 @@ class MiniChamberVC: UIViewController {
         }
     }
     
+    @IBOutlet weak var fadeSwitch: UISwitch!
+    
+    @IBAction func fadeSwitchFunc(_ sender: Any) {
+        if fadeSwitch.isOn {
+            fadeOut = true
+        } else {
+            fadeOut = false
+        }
+    }
+    
     
     let lower = (34.0/36.0)
     let upper = (36.0/34.0)
@@ -81,6 +94,7 @@ class MiniChamberVC: UIViewController {
     var freq2 = 0.0
     var freqCount = 0
     var sensitivityMode = false
+    var fadeOut = true
     
     let tracker = AKFrequencyTracker(input, hopSize: 512, peakCount: 1)
     
@@ -245,7 +259,7 @@ class MiniChamberVC: UIViewController {
                           env7!, env8!,env9!, env10!, env11!, env12!,
                           env13!, env14!)
         
-        filtMix.volume = 0.04
+        filtMix.volume = 0.08
         
         filter = AKLowPassFilter(filtMix, cutoffFrequency: 550)
         
@@ -264,7 +278,7 @@ class MiniChamberVC: UIViewController {
         
         AudioKit.output = output
         AudioKit.start()
-        Timer.scheduledTimer(timeInterval: 0.25, target: self, selector: #selector(MiniChamberVC.initiate), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(MiniChamberVC.initiate), userInfo: nil, repeats: true)
         if RecordVar == true {
              do {AudioFile = try AKAudioFile(forWriting: url, settings: settings)} catch {print("audiofile creation error")}
             print("\(String(describing: AudioFile!.fileNamePlusExtension))")
@@ -556,6 +570,23 @@ class MiniChamberVC: UIViewController {
         }
     }
     
+    func fade() {
+        input.stop()
+        Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(MiniChamberVC.linearFade), userInfo: nil, repeats: true)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+            self.dismiss(animated: false, completion: {})
+            AudioKit.stop()
+            if RecordVar == true {
+                self.stopRecording(success: true)}
+        })
+
+    }
+    
+    func linearFade(){
+        if filtMix.volume > 0{
+            filtMix.volume -= 0.004}
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
