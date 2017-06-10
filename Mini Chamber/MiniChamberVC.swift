@@ -58,6 +58,7 @@ class MiniChamberVC: UIViewController {
     
     @IBAction func dismissVC(_ sender: Any) {
         if fadeOut == true {
+            differential = filtMix.volume/20
             fade()
         } else {
         self.dismiss(animated: false, completion: {})
@@ -95,6 +96,7 @@ class MiniChamberVC: UIViewController {
     var freqCount = 0
     var sensitivityMode = false
     var fadeOut = true
+    var differential = 0.004
     
     let tracker = AKFrequencyTracker(input, hopSize: 512, peakCount: 1)
     
@@ -195,8 +197,7 @@ class MiniChamberVC: UIViewController {
         let day = calendar.component(.day, from: date)
         let hour = calendar.component(.hour, from: date)
         let minutes = calendar.component(.minute, from: date)
-        let seconds = calendar.component(.second, from: date)
-        timeStamp = "\(day)-\(month)-\(year)_at_\(hour).\(minutes)'\(seconds)"
+        timeStamp = "\(day)-\(month)-\(year)_at_\(hour).\(minutes)"
      
         
         //MARK - SET UP OSCILLATORS
@@ -272,7 +273,7 @@ class MiniChamberVC: UIViewController {
         super.viewDidAppear(animated)
         
         let docsurl = NSSearchPathForDirectoriesInDomains( FileManager.SearchPathDirectory.documentDirectory,  FileManager.SearchPathDomainMask.userDomainMask, true)[0] as NSString
-        let str =  docsurl.appendingPathComponent("\(timeStamp!)_MiniChamberV1.aiff")
+        let str =  docsurl.appendingPathComponent("\(timeStamp!)_MiniChamber.aiff")
         let url = NSURL.fileURL(withPath: str as String)
         
         
@@ -585,7 +586,7 @@ class MiniChamberVC: UIViewController {
     
     func linearFade(){
         if filtMix.volume > 0{
-            filtMix.volume -= 0.004}
+            filtMix.volume -= differential}
     }
     
     override func didReceiveMemoryWarning() {
