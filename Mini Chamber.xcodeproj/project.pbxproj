@@ -18,6 +18,9 @@
 		5965A8421EC0D12C001B7721 /* HelpPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5965A8411EC0D12C001B7721 /* HelpPageVC.swift */; };
 		599054901EC21FE500F9EC9C /* wave 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5990548F1EC21FE500F9EC9C /* wave 1.png */; };
 		599993EE1ED8EF6B00ED852F /* HumOsc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599993ED1ED8EF6B00ED852F /* HumOsc.swift */; };
+		59A427BC1EEEF801003031DE /* icons8-Play Filled-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 59A427B91EEEF801003031DE /* icons8-Play Filled-50.png */; };
+		59A427BD1EEEF801003031DE /* icons8-Trash-48.png in Resources */ = {isa = PBXBuildFile; fileRef = 59A427BA1EEEF801003031DE /* icons8-Trash-48.png */; };
+		59A427BE1EEEF801003031DE /* icons8-Upload-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 59A427BB1EEEF801003031DE /* icons8-Upload-50.png */; };
 		59B8E8D31EE3AE5100EFA3C9 /* TableViewControllerMC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B8E8D21EE3AE5100EFA3C9 /* TableViewControllerMC.swift */; };
 		59D6AA021E953C6F0049DA8E /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D6AA011E953C6F0049DA8E /* RoundButton.swift */; };
 		59F147451E648A2200864723 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F147441E648A2200864723 /* AppDelegate.swift */; };
@@ -74,6 +77,9 @@
 		5965A8411EC0D12C001B7721 /* HelpPageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpPageVC.swift; sourceTree = "<group>"; };
 		5990548F1EC21FE500F9EC9C /* wave 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wave 1.png"; sourceTree = "<group>"; };
 		599993ED1ED8EF6B00ED852F /* HumOsc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HumOsc.swift; sourceTree = "<group>"; };
+		59A427B91EEEF801003031DE /* icons8-Play Filled-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-Play Filled-50.png"; sourceTree = "<group>"; };
+		59A427BA1EEEF801003031DE /* icons8-Trash-48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-Trash-48.png"; sourceTree = "<group>"; };
+		59A427BB1EEEF801003031DE /* icons8-Upload-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-Upload-50.png"; sourceTree = "<group>"; };
 		59B8E8D21EE3AE5100EFA3C9 /* TableViewControllerMC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewControllerMC.swift; sourceTree = "<group>"; };
 		59D6AA011E953C6F0049DA8E /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RoundButton.swift; path = "Mini Chamber/RoundButton.swift"; sourceTree = "<group>"; };
 		59F147411E648A2000864723 /* Mini Chamber.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mini Chamber.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,6 +127,9 @@
 		59F147381E648A1C00864723 = {
 			isa = PBXGroup;
 			children = (
+				59A427B91EEEF801003031DE /* icons8-Play Filled-50.png */,
+				59A427BA1EEEF801003031DE /* icons8-Trash-48.png */,
+				59A427BB1EEEF801003031DE /* icons8-Upload-50.png */,
 				5990548F1EC21FE500F9EC9C /* wave 1.png */,
 				59D6AA011E953C6F0049DA8E /* RoundButton.swift */,
 				599993ED1ED8EF6B00ED852F /* HumOsc.swift */,
@@ -295,6 +304,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				593D3C0C1EC36A0800D77847 /* Add Folder-50 red.png in Resources */,
+				59A427BC1EEEF801003031DE /* icons8-Play Filled-50.png in Resources */,
 				594A55271E817D75006CC5EE /* MiniChamber Background.png in Resources */,
 				5958C4DB1E8BFD78008D7767 /* Headphone Icon 4.png in Resources */,
 				593D3C0D1EC36A0800D77847 /* Folder-50.png in Resources */,
@@ -302,8 +312,10 @@
 				594A55311E819874006CC5EE /* Mini Chamber.png in Resources */,
 				594A55291E817D89006CC5EE /* lora in Resources */,
 				594A552B1E819481006CC5EE /* OP presents II.png in Resources */,
+				59A427BE1EEEF801003031DE /* icons8-Upload-50.png in Resources */,
 				59F1474F1E648A3500864723 /* LaunchScreen.storyboard in Resources */,
 				59F1474C1E648A3200864723 /* Assets.xcassets in Resources */,
+				59A427BD1EEEF801003031DE /* icons8-Trash-48.png in Resources */,
 				59F1474A1E648A2700864723 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
