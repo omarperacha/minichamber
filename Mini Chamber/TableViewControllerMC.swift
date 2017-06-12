@@ -23,6 +23,20 @@ class TableViewControllerMC: UITableViewController {
         self.dismiss(animated: false, completion: {})
     }
     
+    @IBOutlet weak var playButton: RoundButton!
+    
+    @IBAction func playButtonFunc(_ sender: Any) {
+    }
+    
+    @IBOutlet weak var shareButton: RoundButton!
+    
+    @IBAction func shareButtonFunc(_ sender: Any) {
+    }
+    
+    @IBOutlet weak var delButton: RoundButton!
+    
+    @IBOutlet weak var delButtonFunc: RoundButton!
+    
    
     
     var files: [String] = []
@@ -38,6 +52,18 @@ class TableViewControllerMC: UITableViewController {
         
         xButton.layer.borderWidth = 1.5
         xButton.layer.borderColor = UIColor.lightGray.cgColor
+        
+        playButton.layer.borderWidth = 1.5
+        playButton.layer.borderColor = UIColor.lightGray.cgColor
+        playButton.isEnabled = false
+        
+        shareButton.layer.borderWidth = 1.5
+        shareButton.layer.borderColor = UIColor.lightGray.cgColor
+        shareButton.isEnabled = false
+        
+        delButton.layer.borderWidth = 1.5
+        delButton.layer.borderColor = UIColor.lightGray.cgColor
+        delButton.isEnabled = false
         
         do {
             // Get the directory contents urls (including subfolders urls)
@@ -101,6 +127,10 @@ class TableViewControllerMC: UITableViewController {
         cell.textLabel?.text = finalArray[indexPath.row]
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Files"
     }
 
     /*

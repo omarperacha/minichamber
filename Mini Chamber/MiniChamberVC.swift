@@ -20,9 +20,13 @@ class MiniChamberVC: UIViewController {
         case AVAudioSessionRouteChangeReason.newDeviceAvailable.rawValue:
             AudioKit.stop()
             self.dismiss(animated: false, completion: {})
+            if RecordVar == true {
+                stopRecording(success: true)}
         case AVAudioSessionRouteChangeReason.oldDeviceUnavailable.rawValue:
             AudioKit.stop()
             self.dismiss(animated: false, completion: {})
+            if RecordVar == true {
+                stopRecording(success: true)}
         default:
             break
         }
@@ -87,6 +91,18 @@ class MiniChamberVC: UIViewController {
         }
     }
     
+    @IBOutlet weak var inputMonitoring: UISlider!
+    
+    @IBAction func inputMonitoringIBA(_ sender: Any) {
+        inputMixer.volume = Double(inputMonitoring.value)
+    }
+    
+    @IBOutlet weak var FXVol: UISlider!
+    
+    @IBAction func FXVolIBA(_ sender: Any) {
+        filtMix.volume = Double(FXVol.value)
+    }
+    
     
     let lower = (34.0/36.0)
     let upper = (36.0/34.0)
@@ -99,6 +115,8 @@ class MiniChamberVC: UIViewController {
     var differential = 0.004
     
     let tracker = AKFrequencyTracker(input, hopSize: 512, peakCount: 1)
+    var inputMixer = AKMixer(input)
+    var trackerMixer = AKMixer()
     
     let sus = 10.0
     
@@ -231,7 +249,8 @@ class MiniChamberVC: UIViewController {
         tracker.start()
         input.start()
         
-        
+        trackerMixer = AKMixer(tracker)
+        trackerMixer.volume = 0
         
         
         //MARK - SET UP ENVELOPES
@@ -260,12 +279,12 @@ class MiniChamberVC: UIViewController {
                           env7!, env8!,env9!, env10!, env11!, env12!,
                           env13!, env14!)
         
-        filtMix.volume = 0.08
+        filtMix.volume = 0.06
         
         filter = AKLowPassFilter(filtMix, cutoffFrequency: 550)
         
         output = AKMixer(filter!,
-                         input, tracker)
+                         inputMixer, trackerMixer)
     }
     
     
@@ -587,6 +606,10 @@ class MiniChamberVC: UIViewController {
     func linearFade(){
         if filtMix.volume > 0{
             filtMix.volume -= differential}
+        FXVol.isEnabled = false
+        inputMonitoring.isEnabled = false
+        fadeSwitch.isEnabled = false
+        mySwitch.isEnabled = false
     }
     
     override func didReceiveMemoryWarning() {
