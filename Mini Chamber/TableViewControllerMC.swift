@@ -14,6 +14,7 @@ class TableViewControllerMC: UITableViewController {
         return true
     }
     
+    var indPath = 0
     
     @IBOutlet weak var footerView: UIView!
     
@@ -32,10 +33,6 @@ class TableViewControllerMC: UITableViewController {
     
     @IBAction func shareButtonFunc(_ sender: Any) {
     }
-    
-    @IBOutlet weak var delButton: RoundButton!
-    
-    @IBOutlet weak var delButtonFunc: RoundButton!
     
    
     
@@ -61,9 +58,6 @@ class TableViewControllerMC: UITableViewController {
         shareButton.layer.borderColor = UIColor.lightGray.cgColor
         shareButton.isEnabled = false
         
-        delButton.layer.borderWidth = 1.5
-        delButton.layer.borderColor = UIColor.lightGray.cgColor
-        delButton.isEnabled = false
         
         do {
             // Get the directory contents urls (including subfolders urls)
@@ -100,6 +94,7 @@ class TableViewControllerMC: UITableViewController {
             //- self.footerView.frame.size.height
         )
         self.tableView.tableFooterView = self.footerView
+        NotificationCenter.default.addObserver(self, selector: #selector(TableViewControllerMC.reloadData), name:NSNotification.Name(rawValue: "reloadData"), object: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -141,17 +136,25 @@ class TableViewControllerMC: UITableViewController {
     }
     */
 
-    /*
-    // Override to support editing the table view.
+
+     //Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+            finalArray.remove(at: indexPath.row)
+            indPath = indexPath.row
+            tableView.deleteRows(at: [indexPath], with:UITableViewRowAnimation.automatic)
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reloadData"),object: self)
+        }
     }
-    */
+    
+    func reloadData(notification:NSNotification){
+        // reload function here, so when called it will reload the tableView
+        finalArray.insert("Deleted", at: indPath)
+        //tableView.reloadData()
+        tableView.beginUpdates()
+        tableView.insertRows(at: [IndexPath(row: indPath, section: 0)], with: .automatic)
+        tableView.endUpdates()
+            }
 
     /*
     // Override to support rearranging the table view.
