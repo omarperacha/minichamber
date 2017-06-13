@@ -215,7 +215,8 @@ class MiniChamberVC: UIViewController {
         let day = calendar.component(.day, from: date)
         let hour = calendar.component(.hour, from: date)
         let minutes = calendar.component(.minute, from: date)
-        timeStamp = "\(day)-\(month)-\(year)_at_\(hour).\(minutes)"
+        let seconds = calendar.component(.second, from: date)
+        timeStamp = "\(day)-\(month)-\(year)at_\(hour)h\(minutes).\(seconds)"
      
         
         //MARK - SET UP OSCILLATORS

@@ -15,6 +15,7 @@ class TableViewControllerMC: UITableViewController {
     }
     
     var indPath = 0
+    var indCount : Int?
     
     @IBOutlet weak var footerView: UIView!
     
@@ -46,6 +47,8 @@ class TableViewControllerMC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        indCount = 0
         
         xButton.layer.borderWidth = 1.5
         xButton.layer.borderColor = UIColor.lightGray.cgColor
@@ -149,13 +152,16 @@ class TableViewControllerMC: UITableViewController {
     
     func reloadData(notification:NSNotification){
         // reload function here, so when called it will reload the tableView
-        finalArray.insert("Deleted", at: indPath)
+        finalArray.insert("Successfully Deleted", at: indPath)
         //tableView.reloadData()
         tableView.beginUpdates()
         tableView.insertRows(at: [IndexPath(row: indPath, section: 0)], with: .automatic)
         tableView.endUpdates()
-            }
-
+        do{let directoryContents = try FileManager.default.contentsOfDirectory(at: documentsUrl, includingPropertiesForKeys: nil, options: [])
+            try FileManager.default.removeItem(at: directoryContents[indPath+1-indCount!])
+        } catch{print("deletion failed")}
+        indCount! += 1
+    }
     /*
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
