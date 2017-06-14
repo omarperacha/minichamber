@@ -15,7 +15,9 @@ class TableViewControllerMC: UITableViewController {
     }
     
     var indPath = 0
+    var shareInd = 0
     var indCount : Int?
+    var documentController = UIDocumentInteractionController()
     
     @IBOutlet weak var footerView: UIView!
     
@@ -33,6 +35,7 @@ class TableViewControllerMC: UITableViewController {
     @IBOutlet weak var shareButton: RoundButton!
     
     @IBAction func shareButtonFunc(_ sender: Any) {
+         documentController.presentOptionsMenu(from: self.shareButton.frame, in: self.view, animated: true)
     }
     
    
@@ -150,6 +153,18 @@ class TableViewControllerMC: UITableViewController {
         }
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) {
+            if cell.isSelected {
+                shareButton.isEnabled = true
+                playButton.isEnabled = true
+                shareInd = indexPath.row
+                do {let directoryContents = try FileManager.default.contentsOfDirectory(at: documentsUrl, includingPropertiesForKeys: nil, options: [])
+                    documentController = UIDocumentInteractionController.init(url: directoryContents[shareInd-indCount!])} catch {print("file assertion error")}
+            }
+        }
+    }
+    
     func reloadData(notification:NSNotification){
         // reload function here, so when called it will reload the tableView
         finalArray.insert("Successfully Deleted", at: indPath)
@@ -158,7 +173,7 @@ class TableViewControllerMC: UITableViewController {
         tableView.insertRows(at: [IndexPath(row: indPath, section: 0)], with: .automatic)
         tableView.endUpdates()
         do{let directoryContents = try FileManager.default.contentsOfDirectory(at: documentsUrl, includingPropertiesForKeys: nil, options: [])
-            try FileManager.default.removeItem(at: directoryContents[indPath+1-indCount!])
+            try FileManager.default.removeItem(at: directoryContents[indPath-indCount!])
         } catch{print("deletion failed")}
         indCount! += 1
     }
