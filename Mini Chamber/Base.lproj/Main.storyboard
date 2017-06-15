@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -167,7 +166,7 @@
                                         <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                         <state key="normal" image="Folder-50.png"/>
                                         <connections>
-                                            <segue destination="XbX-18-Qy6" kind="presentation" animates="NO" id="cRK-FD-Etu"/>
+                                            <action selector="DocFun:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YgE-Xm-NiC"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -285,8 +284,10 @@
                         <outlet property="DocButton" destination="OgF-Xj-IcS" id="IQi-jP-GXo"/>
                         <outlet property="FreePlayButton" destination="6HT-pX-kGS" id="KPp-0F-OBx"/>
                         <outlet property="HeadphoneIcon" destination="PXh-ra-Grd" id="fRW-Wr-FbR"/>
+                        <outlet property="Label" destination="Q6k-oF-gZ5" id="6Qz-P4-k9c"/>
                         <outlet property="QButton" destination="EYb-nE-48o" id="9Mg-Hc-ug8"/>
                         <outlet property="RecordButton" destination="p4j-bF-euY" id="J8o-qh-OG9"/>
+                        <segue destination="XbX-18-Qy6" kind="presentation" identifier="DocSeg" animates="NO" id="sJg-oe-dFV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -31,7 +31,18 @@ class ViewController: UIViewController {
     @IBOutlet weak var QButton: RoundButton!
     
     @IBOutlet weak var DocButton: RoundButton!
+    @IBAction func DocFun(_ sender: Any) {
+        Label.text = "Loading..."
+        Label.font = Label.font.withSize(20)
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "DocSeg", sender: self)
+            self.Label.text = "use with headphones or other external audio output"
+            self.Label.font = self.Label.font.withSize(14)
+        }
+        
+    }
    
+    @IBOutlet weak var Label: UILabel!
     
     var fadeIndex : Float = 0.5 {
         didSet {
