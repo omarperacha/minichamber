@@ -9,7 +9,7 @@
 import UIKit
 import AudioKit
 
-let input = AKMicrophone()
+var input = AKMicrophone()
 
 class MiniChamberVC: UIViewController {
     
@@ -113,7 +113,7 @@ class MiniChamberVC: UIViewController {
     var sensitivityMode = false
     var fadeOut = true
     var differential = 0.004
-    
+
     let tracker = AKFrequencyTracker(input, hopSize: 512, peakCount: 1)
     var inputMixer = AKMixer(input)
     var trackerMixer = AKMixer()
@@ -195,6 +195,7 @@ class MiniChamberVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view, typically from a nib.
         
         wave1.alpha = 0

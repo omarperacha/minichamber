@@ -11,6 +11,7 @@ import AudioKit
 import Foundation
 
 class TableViewControllerMC: UITableViewController {
+
     
     func audioRouteChangeListener(notification:NSNotification) {
         let audioRouteChangeReason = notification.userInfo![AVAudioSessionRouteChangeReasonKey] as! UInt
@@ -24,7 +25,7 @@ class TableViewControllerMC: UITableViewController {
             break
         }
     }
-
+    
 
     override var prefersStatusBarHidden: Bool {
         return true
@@ -44,8 +45,12 @@ class TableViewControllerMC: UITableViewController {
     @IBOutlet weak var xButton: RoundButton!
     
     @IBAction func dismiss(_ sender: Any) {
-        self.dismiss(animated: false, completion: {})
         AudioKit.stop()
+        if player != nil{
+        player!.stop()
+        }
+        AKSettings.playbackWhileMuted = false
+        self.dismiss(animated: false, completion: {})
     }
     
     @IBOutlet weak var playButton: RoundButton!
@@ -87,7 +92,7 @@ class TableViewControllerMC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("\(String(describing: AudioKit.outputs))")
+        AKSettings.playbackWhileMuted = true
         
         indCount = 0
         
@@ -129,7 +134,7 @@ class TableViewControllerMC: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+    
         // Make footerview so it fill up size of the screen
         // The button is aligned to bottom of the footerview
         // using autolayout constraints
