@@ -36,8 +36,6 @@ class ViewController: UIViewController {
         Label.font = Label.font.withSize(20)
         DispatchQueue.main.async {
             self.performSegue(withIdentifier: "DocSeg", sender: self)
-            self.Label.text = "use with headphones or other external audio output"
-            self.Label.font = self.Label.font.withSize(14)
         }
         
     }
@@ -86,11 +84,12 @@ class ViewController: UIViewController {
     }
     
     
-  //override func viewDidAppear(_ animated: Bool) {
-     //super.viewDidAppear(animated)
+  override func viewDidAppear(_ animated: Bool) {
+     super.viewDidAppear(animated)
+    self.Label.text = "use with headphones or other external audio output"
+    self.Label.font = self.Label.font.withSize(14)
     
-    
-    //}
+    }
 
     
     

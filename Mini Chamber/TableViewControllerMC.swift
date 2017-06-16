@@ -7,8 +7,24 @@
 //
 
 import UIKit
+import AudioKit
+import Foundation
 
 class TableViewControllerMC: UITableViewController {
+    
+    func audioRouteChangeListener(notification:NSNotification) {
+        let audioRouteChangeReason = notification.userInfo![AVAudioSessionRouteChangeReasonKey] as! UInt
+        
+        switch audioRouteChangeReason {
+        case AVAudioSessionRouteChangeReason.newDeviceAvailable.rawValue:
+            AudioKit.start()
+        case AVAudioSessionRouteChangeReason.oldDeviceUnavailable.rawValue:
+            AudioKit.start()
+        default:
+            break
+        }
+    }
+
 
     override var prefersStatusBarHidden: Bool {
         return true
@@ -18,6 +34,10 @@ class TableViewControllerMC: UITableViewController {
     var shareInd = 0
     var indCount : Int?
     var documentController = UIDocumentInteractionController()
+    var audioFile : AKAudioFile?
+    var player: AKAudioPlayer?
+    var startStop = false
+    var AKOn = false
     
     @IBOutlet weak var footerView: UIView!
     
@@ -25,11 +45,27 @@ class TableViewControllerMC: UITableViewController {
     
     @IBAction func dismiss(_ sender: Any) {
         self.dismiss(animated: false, completion: {})
+        AudioKit.stop()
     }
     
     @IBOutlet weak var playButton: RoundButton!
     
     @IBAction func playButtonFunc(_ sender: Any) {
+        
+    
+        
+        if startStop == false {
+            startStop = true
+        do{player = try AKAudioPlayer(file: audioFile!)} catch {print("player error")}
+            AudioKit.output = player
+                AudioKit.start()
+        player!.start()
+        } else {
+            startStop = false
+            AudioKit.stop()
+            player!.stop()
+            player = nil
+        }
     }
     
     @IBOutlet weak var shareButton: RoundButton!
@@ -50,6 +86,8 @@ class TableViewControllerMC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print("\(String(describing: AudioKit.outputs))")
         
         indCount = 0
         
@@ -160,7 +198,9 @@ class TableViewControllerMC: UITableViewController {
                 playButton.isEnabled = true
                 shareInd = indexPath.row
                 do {let directoryContents = try FileManager.default.contentsOfDirectory(at: documentsUrl, includingPropertiesForKeys: nil, options: [])
-                    documentController = UIDocumentInteractionController.init(url: directoryContents[shareInd-indCount!])} catch {print("file assertion error")}
+                    documentController = UIDocumentInteractionController.init(url: directoryContents[shareInd-indCount!])
+                    audioFile = try AKAudioFile(forReading: directoryContents[shareInd-indCount!])
+                } catch {print("fail")}
             }
         }
     }
