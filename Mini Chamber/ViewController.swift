@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     
     @IBAction func setRecordVar(_ sender: Any) {
         RecordVar = true
+        AudioKit.engine.reset()
     }
     
     

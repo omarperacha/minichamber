@@ -14,6 +14,7 @@
 		594A55291E817D89006CC5EE /* lora in Resources */ = {isa = PBXBuildFile; fileRef = 594A55281E817D89006CC5EE /* lora */; };
 		594A552B1E819481006CC5EE /* OP presents II.png in Resources */ = {isa = PBXBuildFile; fileRef = 594A552A1E819481006CC5EE /* OP presents II.png */; };
 		594A55311E819874006CC5EE /* Mini Chamber.png in Resources */ = {isa = PBXBuildFile; fileRef = 594A55301E819874006CC5EE /* Mini Chamber.png */; };
+		594FC9151EF4B1B2006D4949 /* icons8-Stop Filled-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 594FC9141EF4B1B2006D4949 /* icons8-Stop Filled-50.png */; };
 		5958C4DB1E8BFD78008D7767 /* Headphone Icon 4.png in Resources */ = {isa = PBXBuildFile; fileRef = 5958C4DA1E8BFD78008D7767 /* Headphone Icon 4.png */; };
 		5965A8421EC0D12C001B7721 /* HelpPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5965A8411EC0D12C001B7721 /* HelpPageVC.swift */; };
 		599054901EC21FE500F9EC9C /* wave 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5990548F1EC21FE500F9EC9C /* wave 1.png */; };
@@ -22,6 +23,8 @@
 		59A427BD1EEEF801003031DE /* icons8-Trash-48.png in Resources */ = {isa = PBXBuildFile; fileRef = 59A427BA1EEEF801003031DE /* icons8-Trash-48.png */; };
 		59A427BE1EEEF801003031DE /* icons8-Upload-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 59A427BB1EEEF801003031DE /* icons8-Upload-50.png */; };
 		59B8E8D31EE3AE5100EFA3C9 /* TableViewControllerMC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B8E8D21EE3AE5100EFA3C9 /* TableViewControllerMC.swift */; };
+		59D00BB01EF4D61000B5351B /* AudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59D00BAF1EF4D61000B5351B /* AudioKit.framework */; };
+		59D00BB11EF4D61000B5351B /* AudioKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59D00BAF1EF4D61000B5351B /* AudioKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		59D6AA021E953C6F0049DA8E /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D6AA011E953C6F0049DA8E /* RoundButton.swift */; };
 		59F147451E648A2200864723 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F147441E648A2200864723 /* AppDelegate.swift */; };
 		59F147471E648A2200864723 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F147461E648A2200864723 /* ViewController.swift */; };
@@ -30,8 +33,6 @@
 		59F1474F1E648A3500864723 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59F1474D1E648A3500864723 /* LaunchScreen.storyboard */; };
 		59F1475A1E648A4600864723 /* Mini_ChamberTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F147591E648A4600864723 /* Mini_ChamberTests.swift */; };
 		59F147651E648A4900864723 /* Mini_ChamberUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F147641E648A4900864723 /* Mini_ChamberUITests.swift */; };
-		59F147731E648B8400864723 /* AudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59F147721E648B8400864723 /* AudioKit.framework */; };
-		59F147741E648B8400864723 /* AudioKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59F147721E648B8400864723 /* AudioKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,7 +59,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				59F147741E648B8400864723 /* AudioKit.framework in Embed Frameworks */,
+				59D00BB11EF4D61000B5351B /* AudioKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -73,6 +74,7 @@
 		594A55281E817D89006CC5EE /* lora */ = {isa = PBXFileReference; lastKnownFileType = folder; path = lora; sourceTree = "<group>"; };
 		594A552A1E819481006CC5EE /* OP presents II.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "OP presents II.png"; sourceTree = "<group>"; };
 		594A55301E819874006CC5EE /* Mini Chamber.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Mini Chamber.png"; sourceTree = "<group>"; };
+		594FC9141EF4B1B2006D4949 /* icons8-Stop Filled-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-Stop Filled-50.png"; path = "../../../Downloads/icons8-Stop Filled-50.png"; sourceTree = "<group>"; };
 		5958C4DA1E8BFD78008D7767 /* Headphone Icon 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Headphone Icon 4.png"; sourceTree = "<group>"; };
 		5965A8411EC0D12C001B7721 /* HelpPageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpPageVC.swift; sourceTree = "<group>"; };
 		5990548F1EC21FE500F9EC9C /* wave 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wave 1.png"; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 		59A427BA1EEEF801003031DE /* icons8-Trash-48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-Trash-48.png"; sourceTree = "<group>"; };
 		59A427BB1EEEF801003031DE /* icons8-Upload-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-Upload-50.png"; sourceTree = "<group>"; };
 		59B8E8D21EE3AE5100EFA3C9 /* TableViewControllerMC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewControllerMC.swift; sourceTree = "<group>"; };
+		59D00BAF1EF4D61000B5351B /* AudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AudioKit.framework; sourceTree = "<group>"; };
 		59D6AA011E953C6F0049DA8E /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RoundButton.swift; path = "Mini Chamber/RoundButton.swift"; sourceTree = "<group>"; };
 		59F147411E648A2000864723 /* Mini Chamber.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mini Chamber.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		59F147441E648A2200864723 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -95,7 +98,6 @@
 		59F147601E648A4900864723 /* Mini ChamberUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Mini ChamberUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		59F147641E648A4900864723 /* Mini_ChamberUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mini_ChamberUITests.swift; sourceTree = "<group>"; };
 		59F147661E648A4900864723 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		59F147721E648B8400864723 /* AudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AudioKit.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				59F147731E648B8400864723 /* AudioKit.framework in Frameworks */,
+				59D00BB01EF4D61000B5351B /* AudioKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,15 +129,16 @@
 		59F147381E648A1C00864723 = {
 			isa = PBXGroup;
 			children = (
+				59D00BAF1EF4D61000B5351B /* AudioKit.framework */,
 				59A427B91EEEF801003031DE /* icons8-Play Filled-50.png */,
 				59A427BA1EEEF801003031DE /* icons8-Trash-48.png */,
+				594FC9141EF4B1B2006D4949 /* icons8-Stop Filled-50.png */,
 				59A427BB1EEEF801003031DE /* icons8-Upload-50.png */,
 				5990548F1EC21FE500F9EC9C /* wave 1.png */,
 				59D6AA011E953C6F0049DA8E /* RoundButton.swift */,
 				599993ED1ED8EF6B00ED852F /* HumOsc.swift */,
 				594A55301E819874006CC5EE /* Mini Chamber.png */,
 				5958C4DA1E8BFD78008D7767 /* Headphone Icon 4.png */,
-				59F147721E648B8400864723 /* AudioKit.framework */,
 				59F147431E648A2100864723 /* Mini Chamber */,
 				59F147581E648A4500864723 /* Mini ChamberTests */,
 				59F147631E648A4900864723 /* Mini ChamberUITests */,
@@ -317,6 +320,7 @@
 				59F1474C1E648A3200864723 /* Assets.xcassets in Resources */,
 				59A427BD1EEEF801003031DE /* icons8-Trash-48.png in Resources */,
 				59F1474A1E648A2700864723 /* Main.storyboard in Resources */,
+				594FC9151EF4B1B2006D4949 /* icons8-Stop Filled-50.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

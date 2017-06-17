@@ -25,11 +25,11 @@ class TableViewControllerMC: UITableViewController {
             break
         }
     }
-    
 
     override var prefersStatusBarHidden: Bool {
         return true
     }
+    
     
     var indPath = 0
     var shareInd = 0
@@ -39,6 +39,8 @@ class TableViewControllerMC: UITableViewController {
     var player: AKAudioPlayer?
     var startStop = false
     var AKOn = false
+    var silence = AKMixer(input)
+    var outputMix = AKMixer()
     
     @IBOutlet weak var footerView: UIView!
     
@@ -46,30 +48,41 @@ class TableViewControllerMC: UITableViewController {
     
     @IBAction func dismiss(_ sender: Any) {
         AudioKit.stop()
+        input.stop()
         if player != nil{
         player!.stop()
         }
         AKSettings.playbackWhileMuted = false
-        self.dismiss(animated: false, completion: {})
+        self.dismiss(animated: false, completion: {
+            do {
+                let session = AVAudioSession.sharedInstance()
+                try session.setCategory(AVAudioSessionCategoryPlayAndRecord, with: AVAudioSessionCategoryOptions.defaultToSpeaker)
+                AudioKit.engine.reset()
+            } catch let error as NSError {
+                print("Audio Session error: \(error.localizedDescription)")
+            }
+        })
     }
     
     @IBOutlet weak var playButton: RoundButton!
     
     @IBAction func playButtonFunc(_ sender: Any) {
         
-    
         
         if startStop == false {
             startStop = true
-        do{player = try AKAudioPlayer(file: audioFile!)} catch {print("player error")}
-            AudioKit.output = player
+            do{player = try AKAudioPlayer(file: audioFile!, looping: false, completionHandler: {() in
+                self.debug()
+            })} catch {print("player error")}
+            outputMix = AKMixer(player, silence)
+            AudioKit.output = outputMix
+            playButton.setImage(UIImage(named: "icons8-Stop Filled-50.png"), for: .normal)
                 AudioKit.start()
         player!.start()
         } else {
-            startStop = false
-            AudioKit.stop()
-            player!.stop()
-            player = nil
+            if player != nil {
+            debug()
+            }
         }
     }
     
@@ -93,8 +106,16 @@ class TableViewControllerMC: UITableViewController {
         super.viewDidLoad()
         
         AKSettings.playbackWhileMuted = true
-        
+        silence.volume = 0
         indCount = 0
+        
+        let audioSession = AVAudioSession.sharedInstance()
+        
+        do {
+            try audioSession.overrideOutputAudioPort(AVAudioSessionPortOverride.speaker)
+        } catch let error as NSError {
+            print("Audio Session error: \(error.localizedDescription)")
+        }
         
         xButton.layer.borderWidth = 1.5
         xButton.layer.borderColor = UIColor.lightGray.cgColor
@@ -102,6 +123,7 @@ class TableViewControllerMC: UITableViewController {
         playButton.layer.borderWidth = 1.5
         playButton.layer.borderColor = UIColor.lightGray.cgColor
         playButton.isEnabled = false
+        playButton.setImage(UIImage(named: "icons8-Play Filled-50.png"), for: .normal)
         
         shareButton.layer.borderWidth = 1.5
         shareButton.layer.borderColor = UIColor.lightGray.cgColor
@@ -223,6 +245,17 @@ class TableViewControllerMC: UITableViewController {
         indCount! += 1
     }
     
+    func debug(){
+        startStop = false
+        AudioKit.stop()
+        if player != nil {
+        player!.stop()
+            player = nil
+        }
+        DispatchQueue.main.async {
+            self.playButton.setImage(UIImage(named: "icons8-Play Filled-50.png"), for: .normal)
+        }
+    }
     /*
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {

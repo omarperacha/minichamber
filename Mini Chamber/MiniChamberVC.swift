@@ -19,12 +19,15 @@ class MiniChamberVC: UIViewController {
         switch audioRouteChangeReason {
         case AVAudioSessionRouteChangeReason.newDeviceAvailable.rawValue:
             AudioKit.stop()
-            self.dismiss(animated: false, completion: {})
+            self.dismiss(animated: false, completion: {
+            AudioKit.engine.reset()})
             if RecordVar == true {
                 stopRecording(success: true)}
         case AVAudioSessionRouteChangeReason.oldDeviceUnavailable.rawValue:
             AudioKit.stop()
-            self.dismiss(animated: false, completion: {})
+            self.dismiss(animated: false, completion: {
+            AudioKit.engine.reset()
+            })
             if RecordVar == true {
                 stopRecording(success: true)}
         default:
@@ -38,7 +41,7 @@ class MiniChamberVC: UIViewController {
     var timeStamp: String?
     var AudioFile: AKAudioFile?
     
-    let settings = [
+    var settings = [
         AVNumberOfChannelsKey: 2,
         AVLinearPCMIsNonInterleaved: false
         ] as [String : Any]
@@ -65,10 +68,13 @@ class MiniChamberVC: UIViewController {
             differential = filtMix.volume/20
             fade()
         } else {
-        self.dismiss(animated: false, completion: {})
+        self.dismiss(animated: false, completion: {
+        AudioKit.engine.reset()
+        })
         AudioKit.stop()
         if RecordVar == true {
-            stopRecording(success: true)}}
+            stopRecording(success: true)}
+        }
     }
     
     @IBOutlet weak var mySwitch: UISwitch!
@@ -111,7 +117,7 @@ class MiniChamberVC: UIViewController {
     var freq2 = 0.0
     var freqCount = 0
     var sensitivityMode = false
-    var fadeOut = true
+    var fadeOut = false
     var differential = 0.004
 
     let tracker = AKFrequencyTracker(input, hopSize: 512, peakCount: 1)
@@ -597,7 +603,9 @@ class MiniChamberVC: UIViewController {
         Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(MiniChamberVC.linearFade), userInfo: nil, repeats: true)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
-            self.dismiss(animated: false, completion: {})
+            self.dismiss(animated: false, completion: {
+                AudioKit.engine.reset()
+            })
             AudioKit.stop()
             if RecordVar == true {
                 self.stopRecording(success: true)}

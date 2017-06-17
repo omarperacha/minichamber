@@ -340,7 +340,7 @@
                                     <constraints>
                                         <constraint firstAttribute="width" constant="46" id="whb-Kp-f3F"/>
                                     </constraints>
-                                    <inset key="imageEdgeInsets" minX="12" minY="10" maxX="10" maxY="10"/>
+                                    <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                     <state key="normal" image="icons8-Play Filled-50.png">
                                         <color key="titleColor" red="0.37593382939999997" green="0.15377459190000001" blue="0.76820553459999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </state>
