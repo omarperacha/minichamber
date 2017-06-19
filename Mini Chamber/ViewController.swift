@@ -19,7 +19,6 @@ class ViewController: UIViewController {
     
     @IBAction func setRecordVar(_ sender: Any) {
         RecordVar = true
-        AudioKit.engine.reset()
     }
     
     
@@ -32,6 +31,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var QButton: RoundButton!
     
     @IBOutlet weak var DocButton: RoundButton!
+    
     @IBAction func DocFun(_ sender: Any) {
         Label.text = "Loading..."
         Label.font = Label.font.withSize(20)
@@ -89,6 +89,9 @@ class ViewController: UIViewController {
      super.viewDidAppear(animated)
     self.Label.text = "use with headphones or other external audio output"
     self.Label.font = self.Label.font.withSize(14)
+    AudioKit.engine.reset()
+    AudioKit.disconnectAllInputs()
+
     
     }
 

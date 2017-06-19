@@ -19,15 +19,14 @@ class MiniChamberVC: UIViewController {
         switch audioRouteChangeReason {
         case AVAudioSessionRouteChangeReason.newDeviceAvailable.rawValue:
             AudioKit.stop()
-            self.dismiss(animated: false, completion: {
-            AudioKit.engine.reset()})
+            self.dismiss(animated: false, completion: {})
+            reset()
             if RecordVar == true {
                 stopRecording(success: true)}
         case AVAudioSessionRouteChangeReason.oldDeviceUnavailable.rawValue:
             AudioKit.stop()
-            self.dismiss(animated: false, completion: {
-            AudioKit.engine.reset()
-            })
+            self.dismiss(animated: false, completion: {})
+            reset()
             if RecordVar == true {
                 stopRecording(success: true)}
         default:
@@ -68,12 +67,14 @@ class MiniChamberVC: UIViewController {
             differential = filtMix.volume/20
             fade()
         } else {
-        self.dismiss(animated: false, completion: {
-        AudioKit.engine.reset()
-        })
-        AudioKit.stop()
-        if RecordVar == true {
+            AudioKit.stop()
+            reset()
+            if RecordVar == true {
             stopRecording(success: true)}
+            
+            DispatchQueue.main.async {
+                self.dismiss(animated: false, completion: {})
+            }
         }
     }
     
@@ -253,10 +254,6 @@ class MiniChamberVC: UIViewController {
         m13 = AKMixer(s13, s13.partial1, s13.partial2, s13.partial3, s13.partial4, s13.partial5)
         m14 = AKMixer(s14, s14.partial1, s14.partial2, s14.partial3, s14.partial4, s14.partial5)
         
-        
-        tracker.start()
-        input.start()
-        
         trackerMixer = AKMixer(tracker)
         trackerMixer.volume = 0
         
@@ -305,6 +302,8 @@ class MiniChamberVC: UIViewController {
         
         
         AudioKit.output = output
+        input.start()
+        tracker.start()
         AudioKit.start()
         Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(MiniChamberVC.initiate), userInfo: nil, repeats: true)
         if RecordVar == true {
@@ -603,10 +602,9 @@ class MiniChamberVC: UIViewController {
         Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(MiniChamberVC.linearFade), userInfo: nil, repeats: true)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
-            self.dismiss(animated: false, completion: {
-                AudioKit.engine.reset()
-            })
+            self.dismiss(animated: false, completion: {})
             AudioKit.stop()
+            self.reset()
             if RecordVar == true {
                 self.stopRecording(success: true)}
         })
@@ -627,6 +625,9 @@ class MiniChamberVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func reset(){
+        AudioKit.disconnectAllInputs()
+    }
     
     
     

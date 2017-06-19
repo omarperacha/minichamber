@@ -54,14 +54,16 @@ class TableViewControllerMC: UITableViewController {
         }
         AKSettings.playbackWhileMuted = false
         self.dismiss(animated: false, completion: {
-            do {
-                let session = AVAudioSession.sharedInstance()
-                try session.setCategory(AVAudioSessionCategoryPlayAndRecord, with: AVAudioSessionCategoryOptions.defaultToSpeaker)
                 AudioKit.engine.reset()
-            } catch let error as NSError {
-                print("Audio Session error: \(error.localizedDescription)")
-            }
-        })
+                AudioKit.disconnectAllInputs()
+            if AKSettings.headPhonesPlugged == false {
+                let audioSession = AVAudioSession.sharedInstance()
+                do {
+                    try audioSession.overrideOutputAudioPort(AVAudioSessionPortOverride.none)
+                } catch let error as NSError {
+                    print("Audio Session error: \(error.localizedDescription)")
+                }}
+                })
     }
     
     @IBOutlet weak var playButton: RoundButton!
@@ -109,13 +111,13 @@ class TableViewControllerMC: UITableViewController {
         silence.volume = 0
         indCount = 0
         
+        if AKSettings.headPhonesPlugged == false {
         let audioSession = AVAudioSession.sharedInstance()
-        
         do {
             try audioSession.overrideOutputAudioPort(AVAudioSessionPortOverride.speaker)
         } catch let error as NSError {
             print("Audio Session error: \(error.localizedDescription)")
-        }
+            }}
         
         xButton.layer.borderWidth = 1.5
         xButton.layer.borderColor = UIColor.lightGray.cgColor
