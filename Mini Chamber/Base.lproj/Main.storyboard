@@ -20,12 +20,12 @@
         <!--Help PageVC-->
         <scene sceneID="ivi-Vw-WVL">
             <objects>
-                <viewController id="YII-T6-VIC" customClass="HelpPageVC" customModule="Mini_Chamber" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HelpPageVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="YII-T6-VIC" customClass="HelpPageVC" customModule="Mini_Chamber" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JlT-vk-AMV"/>
                         <viewControllerLayoutGuide type="bottom" id="Wme-OQ-2qW"/>
                     </layoutGuides>
-                    <view key="view" alpha="0.93999999999999995" contentMode="scaleToFill" id="U0H-VS-y3n">
+                    <view key="view" alpha="0.90000000000000002" contentMode="scaleToFill" id="U0H-VS-y3n">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -78,7 +78,73 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8a4-PH-6FP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-370" y="860"/>
+            <point key="canvasLocation" x="-1148" y="889"/>
+        </scene>
+        <!--Help Page2VC-->
+        <scene sceneID="xwk-Fd-uHE">
+            <objects>
+                <viewController storyboardIdentifier="HelpPage2" useStoryboardIdentifierAsRestorationIdentifier="YES" id="rwZ-Aj-cDI" customClass="HelpPage2VC" customModule="Mini_Chamber" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QFd-OQ-NeI"/>
+                        <viewControllerLayoutGuide type="bottom" id="ncq-kZ-m3T"/>
+                    </layoutGuides>
+                    <view key="view" alpha="0.90000000000000002" contentMode="scaleToFill" id="8pQ-N4-3TK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oPo-mb-Rob">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="oPo-mb-Rob" secondAttribute="trailing" id="NFx-TJ-Bet"/>
+                            <constraint firstItem="oPo-mb-Rob" firstAttribute="top" secondItem="8pQ-N4-3TK" secondAttribute="top" id="WNt-MD-zFZ"/>
+                            <constraint firstItem="oPo-mb-Rob" firstAttribute="leading" secondItem="8pQ-N4-3TK" secondAttribute="leading" id="cwQ-Ao-5g0"/>
+                            <constraint firstItem="oPo-mb-Rob" firstAttribute="bottom" secondItem="ncq-kZ-m3T" secondAttribute="top" id="jEn-bM-pd8"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4yc-aG-6hi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-282.39999999999998" y="887.40629685157433"/>
+        </scene>
+        <!--Help Page3VC-->
+        <scene sceneID="Ogs-b9-ymM">
+            <objects>
+                <viewController storyboardIdentifier="HelpPage3" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jKq-Gm-uWC" customClass="HelpPage3VC" customModule="Mini_Chamber" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ar2-E4-QTU"/>
+                        <viewControllerLayoutGuide type="bottom" id="bh9-LZ-NxS"/>
+                    </layoutGuides>
+                    <view key="view" alpha="0.90000000000000002" contentMode="scaleToFill" id="Qh6-b7-HSU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DPH-uH-VI3">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="DPH-uH-VI3" firstAttribute="leading" secondItem="Qh6-b7-HSU" secondAttribute="leading" id="fWe-oN-kWI"/>
+                            <constraint firstItem="DPH-uH-VI3" firstAttribute="top" secondItem="Qh6-b7-HSU" secondAttribute="topMargin" id="mjI-kH-oyf"/>
+                            <constraint firstAttribute="trailing" secondItem="DPH-uH-VI3" secondAttribute="trailing" id="mjx-SY-z0f"/>
+                            <constraint firstItem="bh9-LZ-NxS" firstAttribute="top" secondItem="DPH-uH-VI3" secondAttribute="bottom" id="xNP-ov-1yw"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vSF-s3-Mzx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-694" y="1569"/>
+        </scene>
+        <!--PageVC-->
+        <scene sceneID="1uZ-5e-3z3">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" modalPresentationStyle="overCurrentContext" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="jUs-HE-eAz" customClass="PageVC" customModule="Mini_Chamber" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M3K-Bm-Deu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-681" y="197"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -231,7 +297,7 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="YII-T6-VIC" kind="presentation" animates="NO" modalPresentationStyle="overFullScreen" id="JFY-zu-Mzh"/>
+                                    <segue destination="jUs-HE-eAz" kind="presentation" animates="NO" id="Wbk-1H-o6a"/>
                                 </connections>
                             </button>
                             <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="euJ-V1-jtG">

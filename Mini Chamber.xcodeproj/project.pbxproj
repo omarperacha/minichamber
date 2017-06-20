@@ -11,12 +11,15 @@
 		593D3C0D1EC36A0800D77847 /* Folder-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 593D3C0B1EC36A0800D77847 /* Folder-50.png */; };
 		594A55251E81517B006CC5EE /* MiniChamberVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594A55241E81517B006CC5EE /* MiniChamberVC.swift */; };
 		594A55271E817D75006CC5EE /* MiniChamber Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 594A55261E817D75006CC5EE /* MiniChamber Background.png */; };
-		594A55291E817D89006CC5EE /* lora in Resources */ = {isa = PBXBuildFile; fileRef = 594A55281E817D89006CC5EE /* lora */; };
 		594A552B1E819481006CC5EE /* OP presents II.png in Resources */ = {isa = PBXBuildFile; fileRef = 594A552A1E819481006CC5EE /* OP presents II.png */; };
 		594A55311E819874006CC5EE /* Mini Chamber.png in Resources */ = {isa = PBXBuildFile; fileRef = 594A55301E819874006CC5EE /* Mini Chamber.png */; };
 		594FC9151EF4B1B2006D4949 /* icons8-Stop Filled-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 594FC9141EF4B1B2006D4949 /* icons8-Stop Filled-50.png */; };
 		5958C4DB1E8BFD78008D7767 /* Headphone Icon 4.png in Resources */ = {isa = PBXBuildFile; fileRef = 5958C4DA1E8BFD78008D7767 /* Headphone Icon 4.png */; };
 		5965A8421EC0D12C001B7721 /* HelpPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5965A8411EC0D12C001B7721 /* HelpPageVC.swift */; };
+		597BDA361EF8A31B00D1B572 /* PageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597BDA351EF8A31B00D1B572 /* PageVC.swift */; };
+		597BDA381EF8AB2F00D1B572 /* HelpPage2VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597BDA371EF8AB2F00D1B572 /* HelpPage2VC.swift */; };
+		597BDA3B1EF8AE9D00D1B572 /* Lora-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 597BDA3A1EF8AE9D00D1B572 /* Lora-Regular.ttf */; };
+		597BDA3D1EF8BABF00D1B572 /* HelpPage3VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597BDA3C1EF8BABF00D1B572 /* HelpPage3VC.swift */; };
 		599054901EC21FE500F9EC9C /* wave 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5990548F1EC21FE500F9EC9C /* wave 1.png */; };
 		599993EE1ED8EF6B00ED852F /* HumOsc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 599993ED1ED8EF6B00ED852F /* HumOsc.swift */; };
 		59A427BC1EEEF801003031DE /* icons8-Play Filled-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 59A427B91EEEF801003031DE /* icons8-Play Filled-50.png */; };
@@ -71,12 +74,15 @@
 		593D3C0B1EC36A0800D77847 /* Folder-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Folder-50.png"; sourceTree = "<group>"; };
 		594A55241E81517B006CC5EE /* MiniChamberVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniChamberVC.swift; sourceTree = "<group>"; };
 		594A55261E817D75006CC5EE /* MiniChamber Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MiniChamber Background.png"; sourceTree = "<group>"; };
-		594A55281E817D89006CC5EE /* lora */ = {isa = PBXFileReference; lastKnownFileType = folder; path = lora; sourceTree = "<group>"; };
 		594A552A1E819481006CC5EE /* OP presents II.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "OP presents II.png"; sourceTree = "<group>"; };
 		594A55301E819874006CC5EE /* Mini Chamber.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Mini Chamber.png"; sourceTree = "<group>"; };
 		594FC9141EF4B1B2006D4949 /* icons8-Stop Filled-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icons8-Stop Filled-50.png"; path = "../../../Downloads/icons8-Stop Filled-50.png"; sourceTree = "<group>"; };
 		5958C4DA1E8BFD78008D7767 /* Headphone Icon 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Headphone Icon 4.png"; sourceTree = "<group>"; };
 		5965A8411EC0D12C001B7721 /* HelpPageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpPageVC.swift; sourceTree = "<group>"; };
+		597BDA351EF8A31B00D1B572 /* PageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageVC.swift; sourceTree = "<group>"; };
+		597BDA371EF8AB2F00D1B572 /* HelpPage2VC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpPage2VC.swift; sourceTree = "<group>"; };
+		597BDA3A1EF8AE9D00D1B572 /* Lora-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lora-Regular.ttf"; path = "lora/Lora-Regular.ttf"; sourceTree = "<group>"; };
+		597BDA3C1EF8BABF00D1B572 /* HelpPage3VC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpPage3VC.swift; sourceTree = "<group>"; };
 		5990548F1EC21FE500F9EC9C /* wave 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wave 1.png"; sourceTree = "<group>"; };
 		599993ED1ED8EF6B00ED852F /* HumOsc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HumOsc.swift; sourceTree = "<group>"; };
 		59A427B91EEEF801003031DE /* icons8-Play Filled-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-Play Filled-50.png"; sourceTree = "<group>"; };
@@ -163,8 +169,11 @@
 				59F147461E648A2200864723 /* ViewController.swift */,
 				594A55241E81517B006CC5EE /* MiniChamberVC.swift */,
 				59B8E8D21EE3AE5100EFA3C9 /* TableViewControllerMC.swift */,
+				597BDA351EF8A31B00D1B572 /* PageVC.swift */,
 				5965A8411EC0D12C001B7721 /* HelpPageVC.swift */,
-				594A55281E817D89006CC5EE /* lora */,
+				597BDA371EF8AB2F00D1B572 /* HelpPage2VC.swift */,
+				597BDA3C1EF8BABF00D1B572 /* HelpPage3VC.swift */,
+				597BDA3A1EF8AE9D00D1B572 /* Lora-Regular.ttf */,
 				594A55261E817D75006CC5EE /* MiniChamber Background.png */,
 				593D3C0A1EC36A0800D77847 /* Add Folder-50 red.png */,
 				593D3C0B1EC36A0800D77847 /* Folder-50.png */,
@@ -267,7 +276,7 @@
 					59F147401E648A1C00864723 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 255A692Y6K;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					59F147541E648A4500864723 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -315,8 +324,8 @@
 				593D3C0D1EC36A0800D77847 /* Folder-50.png in Resources */,
 				599054901EC21FE500F9EC9C /* wave 1.png in Resources */,
 				594A55311E819874006CC5EE /* Mini Chamber.png in Resources */,
-				594A55291E817D89006CC5EE /* lora in Resources */,
 				594A552B1E819481006CC5EE /* OP presents II.png in Resources */,
+				597BDA3B1EF8AE9D00D1B572 /* Lora-Regular.ttf in Resources */,
 				59A427BE1EEEF801003031DE /* icons8-Upload-50.png in Resources */,
 				59F1474F1E648A3500864723 /* LaunchScreen.storyboard in Resources */,
 				59F1474C1E648A3200864723 /* Assets.xcassets in Resources */,
@@ -380,7 +389,10 @@
 				59B8E8D31EE3AE5100EFA3C9 /* TableViewControllerMC.swift in Sources */,
 				5965A8421EC0D12C001B7721 /* HelpPageVC.swift in Sources */,
 				59F147471E648A2200864723 /* ViewController.swift in Sources */,
+				597BDA381EF8AB2F00D1B572 /* HelpPage2VC.swift in Sources */,
 				59F147451E648A2200864723 /* AppDelegate.swift in Sources */,
+				597BDA3D1EF8BABF00D1B572 /* HelpPage3VC.swift in Sources */,
+				597BDA361EF8A31B00D1B572 /* PageVC.swift in Sources */,
 				599993EE1ED8EF6B00ED852F /* HumOsc.swift in Sources */,
 				594A55251E81517B006CC5EE /* MiniChamberVC.swift in Sources */,
 			);
@@ -534,6 +546,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = 255A692Y6K;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -544,6 +557,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.omarperacha.Mini-Chamber";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "e76ecf9c-4165-47d6-a38d-9219aafe8615";
+				PROVISIONING_PROFILE_SPECIFIER = "Mini Chamber App Store Distribution";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -552,6 +567,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = 255A692Y6K;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -562,6 +578,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.omarperacha.Mini-Chamber";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "e76ecf9c-4165-47d6-a38d-9219aafe8615";
+				PROVISIONING_PROFILE_SPECIFIER = "Mini Chamber App Store Distribution";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
