@@ -9,9 +9,24 @@
 import UIKit
 
 class HelpPage3VC: UIViewController {
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
+    @IBOutlet weak var xButton: RoundButton!
+    
+    @IBAction func dismiss(_ sender: Any) {
+        self.dismiss(animated: false, completion: {})
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        xButton.layer.borderWidth = 1.5
+        xButton.layer.borderColor = UIColor.lightGray.cgColor
 
         // Do any additional setup after loading the view.
     }

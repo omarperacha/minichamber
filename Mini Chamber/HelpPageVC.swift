@@ -16,7 +16,7 @@ class HelpPageVC: UIViewController {
     
     
     @IBOutlet weak var xButton: RoundButton!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

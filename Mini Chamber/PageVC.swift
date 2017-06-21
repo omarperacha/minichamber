@@ -57,9 +57,8 @@ class PageVC: UIPageViewController, UIPageViewControllerDelegate, UIPageViewCont
         // User is on the first view controller and swiped left to loop to
         // the last view controller.
         guard previousIndex >= 0 else {
-            return orderedViewControllers.last
             // Uncommment the line below, remove the line above if you don't want the page control to loop.
-            // return nil
+            return nil
         }
         
         guard orderedViewControllers.count > previousIndex else {
@@ -97,6 +96,7 @@ class PageVC: UIPageViewController, UIPageViewControllerDelegate, UIPageViewCont
         self.pageControl.numberOfPages = orderedViewControllers.count
         self.pageControl.currentPage = 0
         self.pageControl.tintColor = UIColor.black
+        self.pageControl.isUserInteractionEnabled = false
         self.pageControl.pageIndicatorTintColor = UIColor.darkGray
         self.pageControl.currentPageIndicatorTintColor = UIColor.white
         self.view.addSubview(pageControl)
