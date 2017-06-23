@@ -15,6 +15,23 @@ class HelpPageVC: UIViewController {
     }
     
     
+    
+    
+    @IBOutlet weak var VoxIbutton: UIButton!
+    
+    
+    @IBAction func openVoxURL(_ sender: Any) {
+        UIApplication.shared.openURL(URL(string: "https://omarperacha.com/vox-i")!)
+    }
+    
+    @IBAction func termsLink(_ sender: Any) {
+        UIApplication.shared.openURL(URL(string: "https://omarperacha.com/mini-chamber-terms-of-use")!)
+    }
+    
+    @IBAction func iconLink(_ sender: Any) {
+        UIApplication.shared.openURL(URL(string: "https://icons8.com/")!)
+    }
+    
     @IBOutlet weak var xButton: RoundButton!
     
     override func viewDidLoad() {
@@ -24,6 +41,9 @@ class HelpPageVC: UIViewController {
         
         xButton.layer.borderWidth = 1.5
         xButton.layer.borderColor = UIColor.lightGray.cgColor
+        
+        VoxIbutton.layer.borderWidth = 1.5
+        VoxIbutton.layer.borderColor = UIColor.darkGray.cgColor
         
     }
 

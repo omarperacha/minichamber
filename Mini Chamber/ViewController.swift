@@ -66,6 +66,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        UIApplication.shared.isIdleTimerDisabled = false
+        
         FreePlayButton.layer.borderWidth = 1.5
         FreePlayButton.layer.borderColor = UIColor.black.cgColor
         

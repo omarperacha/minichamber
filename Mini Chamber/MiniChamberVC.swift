@@ -203,6 +203,8 @@ class MiniChamberVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        UIApplication.shared.isIdleTimerDisabled = true
+        
         // Do any additional setup after loading the view, typically from a nib.
         
         wave1.alpha = 0
