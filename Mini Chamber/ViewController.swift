@@ -89,7 +89,7 @@ class ViewController: UIViewController {
     
   override func viewDidAppear(_ animated: Bool) {
      super.viewDidAppear(animated)
-    self.Label.text = "use with headphones or other external audio output"
+    self.Label.text = "optimised for headphones or other external audio output"
     self.Label.font = self.Label.font.withSize(14)
     AudioKit.engine.reset()
     AudioKit.disconnectAllInputs()

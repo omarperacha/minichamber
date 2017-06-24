@@ -459,7 +459,7 @@ Cg
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Er8-rP-ScE">
-                                        <rect key="frame" x="94.5" y="34" width="132" height="21"/>
+                                        <rect key="frame" x="94.5" y="44" width="132" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="132" id="QhH-K5-wzO"/>
                                             <constraint firstAttribute="height" constant="21" id="bjM-2R-FJ8"/>
@@ -478,7 +478,7 @@ Cg
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="Er8-rP-ScE" firstAttribute="centerX" secondItem="Z0f-kL-7f4" secondAttribute="centerX" id="Ccb-p9-owF"/>
-                                    <constraint firstItem="Z0f-kL-7f4" firstAttribute="top" secondItem="Er8-rP-ScE" secondAttribute="bottom" constant="30" id="EH2-jT-pxq"/>
+                                    <constraint firstItem="Z0f-kL-7f4" firstAttribute="top" secondItem="Er8-rP-ScE" secondAttribute="bottom" constant="20" id="EH2-jT-pxq"/>
                                     <constraint firstItem="1ob-lL-QEm" firstAttribute="centerX" secondItem="oPo-mb-Rob" secondAttribute="centerX" id="FcB-7J-w91"/>
                                     <constraint firstItem="rOI-Gd-0np" firstAttribute="height" secondItem="oPo-mb-Rob" secondAttribute="height" multiplier="0.15" id="Uoy-4N-CZa"/>
                                     <constraint firstItem="QD0-0T-jEZ" firstAttribute="leading" secondItem="oPo-mb-Rob" secondAttribute="leading" constant="8" id="W1c-ot-1X8"/>
@@ -689,7 +689,7 @@ Fade Out: </string>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ezs-65-bsw">
-                                        <rect key="frame" x="80.5" y="34" width="159" height="21"/>
+                                        <rect key="frame" x="80.5" y="44" width="159" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="159" id="0Mi-ps-8d7"/>
                                             <constraint firstAttribute="height" constant="21" id="IZY-nY-Qe3"/>
@@ -713,7 +713,7 @@ Fade Out: </string>
                                     <constraint firstAttribute="trailing" secondItem="Xre-PK-4nt" secondAttribute="trailing" constant="137" id="GON-hh-u2y"/>
                                     <constraint firstItem="OrL-Oq-HCz" firstAttribute="top" secondItem="Xre-PK-4nt" secondAttribute="bottom" id="L1D-ZB-AUI"/>
                                     <constraint firstItem="YS8-5V-TPa" firstAttribute="height" secondItem="DPH-uH-VI3" secondAttribute="height" multiplier="0.85" id="Tqj-CK-Eyr"/>
-                                    <constraint firstItem="OrL-Oq-HCz" firstAttribute="top" secondItem="ezs-65-bsw" secondAttribute="bottom" constant="30" id="XNP-G3-0QI"/>
+                                    <constraint firstItem="OrL-Oq-HCz" firstAttribute="top" secondItem="ezs-65-bsw" secondAttribute="bottom" constant="20" id="XNP-G3-0QI"/>
                                     <constraint firstItem="ezs-65-bsw" firstAttribute="centerX" secondItem="DPH-uH-VI3" secondAttribute="centerX" id="cGY-fh-lqk"/>
                                     <constraint firstItem="zSr-Lt-4Jf" firstAttribute="top" secondItem="YS8-5V-TPa" secondAttribute="bottom" id="eth-Ni-YQv"/>
                                     <constraint firstItem="OrL-Oq-HCz" firstAttribute="centerX" secondItem="DPH-uH-VI3" secondAttribute="centerX" id="t8P-Hc-zb3"/>
@@ -812,7 +812,7 @@ Fade Out: </string>
                                             <constraint firstAttribute="width" constant="25" id="zdY-ds-oPp"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="use with headphones or other external audio output" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q6k-oF-gZ5">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="optimised for headphones or other external audio output" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q6k-oF-gZ5">
                                         <rect key="frame" x="25" y="196" width="218" height="43"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="43" id="85Q-3M-Kfx"/>
