@@ -964,10 +964,11 @@ Fade Out: </string>
         <scene sceneID="z1B-er-Gd3">
             <objects>
                 <tableViewController id="XbX-18-Qy6" customClass="TableViewControllerMC" customModule="Mini_Chamber" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="default" sectionIndexMinimumDisplayRowCount="7" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="MCp-DT-h1M">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="white" dataMode="prototypes" style="grouped" separatorStyle="default" sectionIndexMinimumDisplayRowCount="7" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="MCp-DT-h1M">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <inset key="scrollIndicatorInsets" minX="0.0" minY="50" maxX="0.0" maxY="400"/>
                         <color key="sectionIndexBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="sectionIndexTrackingBackgroundColor" red="0.37593382939999997" green="0.15377459190000001" blue="0.76820553459999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="XjO-8Z-iar">
@@ -1003,6 +1004,9 @@ Fade Out: </string>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WU9-zE-Rlh" customClass="RoundButton" customModule="Mini_Chamber" customModuleProvider="target">
                                     <rect key="frame" x="94" y="322" width="46" height="46"/>
+                                    <accessibility key="accessibilityConfiguration">
+                                        <accessibilityTraits key="traits" button="YES" playsSound="YES"/>
+                                    </accessibility>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="46" id="whb-Kp-f3F"/>
                                     </constraints>
@@ -1189,14 +1193,14 @@ Fade Out: </string>
                                     <constraint firstAttribute="width" constant="80" id="xbG-e1-Dtd"/>
                                 </constraints>
                             </view>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="2" translatesAutoresizingMaskIntoConstraints="NO" id="zHz-gX-fiF">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1.5" minValue="0.0" maxValue="3" translatesAutoresizingMaskIntoConstraints="NO" id="zHz-gX-fiF">
                                 <rect key="frame" x="70" y="171" width="181" height="31"/>
                                 <color key="tintColor" red="0.37593382939999997" green="0.15377459190000001" blue="0.76820553459999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <action selector="inputMonitoringIBA:" destination="FFH-EJ-Ziq" eventType="valueChanged" id="NgZ-cw-800"/>
                                 </connections>
                             </slider>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.059999999999999998" minValue="0.0" maxValue="0.12" translatesAutoresizingMaskIntoConstraints="NO" id="8xM-4h-bb9">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.050000000000000003" minValue="0.0" maxValue="0.14999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="8xM-4h-bb9">
                                 <rect key="frame" x="69" y="303" width="181" height="31"/>
                                 <color key="tintColor" red="0.37593382939999997" green="0.15377459190000001" blue="0.76820553459999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>

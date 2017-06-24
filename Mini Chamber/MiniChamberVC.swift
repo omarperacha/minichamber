@@ -64,7 +64,8 @@ class MiniChamberVC: UIViewController {
     
     @IBAction func dismissVC(_ sender: Any) {
         if fadeOut == true {
-            differential = filtMix.volume/20
+            differential = filtMix.volume/40
+            inpDifferential = inputMixer.volume/10
             fade()
         } else {
             AudioKit.stop()
@@ -119,7 +120,8 @@ class MiniChamberVC: UIViewController {
     var freqCount = 0
     var sensitivityMode = false
     var fadeOut = false
-    var differential = 0.004
+    var differential = 0.002
+    var inpDifferential = 0.015
 
     let tracker = AKFrequencyTracker(input, hopSize: 512, peakCount: 1)
     var inputMixer = AKMixer(input)
@@ -286,7 +288,8 @@ class MiniChamberVC: UIViewController {
                           env7!, env8!,env9!, env10!, env11!, env12!,
                           env13!, env14!)
         
-        filtMix.volume = 0.06
+        filtMix.volume = 0.05
+        inputMixer.volume = 1.5
         
         filter = AKLowPassFilter(filtMix, cutoffFrequency: 550)
         
@@ -600,8 +603,11 @@ class MiniChamberVC: UIViewController {
     }
     
     func fade() {
-        input.stop()
         Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(MiniChamberVC.linearFade), userInfo: nil, repeats: true)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+        input.stop()
+        })
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
             self.dismiss(animated: false, completion: {})
@@ -616,6 +622,8 @@ class MiniChamberVC: UIViewController {
     func linearFade(){
         if filtMix.volume > 0{
             filtMix.volume -= differential}
+        if inputMixer.volume > 0{
+            inputMixer.volume -= inpDifferential}
         FXVol.isEnabled = false
         inputMonitoring.isEnabled = false
         fadeSwitch.isEnabled = false

@@ -276,7 +276,7 @@
 					59F147401E648A1C00864723 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 255A692Y6K;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					59F147541E648A4500864723 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -546,8 +546,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = 255A692Y6K;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -557,8 +557,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.omarperacha.Mini-Chamber";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "e76ecf9c-4165-47d6-a38d-9219aafe8615";
+				PROVISIONING_PROFILE_SPECIFIER = "Mini Chamber App Store Distribution";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -567,8 +567,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = 255A692Y6K;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -578,8 +578,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.omarperacha.Mini-Chamber";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "e76ecf9c-4165-47d6-a38d-9219aafe8615";
+				PROVISIONING_PROFILE_SPECIFIER = "Mini Chamber App Store Distribution";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

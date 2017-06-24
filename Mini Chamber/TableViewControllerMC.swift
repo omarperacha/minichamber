@@ -163,10 +163,13 @@ class TableViewControllerMC: UITableViewController {
         // The button is aligned to bottom of the footerview
         // using autolayout constraints
         self.tableView.tableFooterView = nil
-        self.footerView.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.tableView.frame.size.height - self.tableView.contentSize.height
-            //- self.footerView.frame.size.height
-        )
+        
+        if finalArray.count <= 7{
+            self.footerView.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.tableView.frame.size.height - self.tableView.contentSize.height)} else {self.footerView.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.tableView.frame.size.height - self.tableView.contentSize.height+CGFloat((finalArray.count-7)*46))}
+            
+            //self.tableView.frame.size.height - self.tableView.contentSize.height - self.footerView.frame.size.height)
         self.tableView.tableFooterView = self.footerView
+        
         NotificationCenter.default.addObserver(self, selector: #selector(TableViewControllerMC.reloadData), name:NSNotification.Name(rawValue: "reloadData"), object: nil)
     }
 
@@ -192,7 +195,7 @@ class TableViewControllerMC: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LabelCell", for: indexPath)
         
-        cell.textLabel?.text = finalArray[indexPath.row]
+            cell.textLabel?.text = finalArray[indexPath.row]
         
         return cell
     }
