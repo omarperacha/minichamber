@@ -12,25 +12,26 @@ import AudioKit
 var input = AKMicrophone()
 
 class MiniChamberVC: UIViewController {
+
     
-    func audioRouteChangeListener(notification:NSNotification) {
-        let audioRouteChangeReason = notification.userInfo![AVAudioSessionRouteChangeReasonKey] as! UInt
+   dynamic fileprivate func audioRouteChangeListener(notification:NSNotification) {
+       let audioRouteChangeReason = notification.userInfo![AVAudioSessionRouteChangeReasonKey] as! UInt
         
         switch audioRouteChangeReason {
-        case AVAudioSessionRouteChangeReason.newDeviceAvailable.rawValue:
-            AudioKit.stop()
-            self.dismiss(animated: false, completion: {})
-            reset()
-            if RecordVar == true {
-                stopRecording(success: true)}
-        case AVAudioSessionRouteChangeReason.oldDeviceUnavailable.rawValue:
-            AudioKit.stop()
-            self.dismiss(animated: false, completion: {})
-            reset()
-            if RecordVar == true {
-                stopRecording(success: true)}
-        default:
-            break
+            case AVAudioSessionRouteChangeReason.newDeviceAvailable.rawValue:
+                AudioKit.stop()
+                self.dismiss(animated: false, completion: {})
+                reset()
+                if RecordVar == true {
+                    stopRecording(success: true)}
+            case AVAudioSessionRouteChangeReason.oldDeviceUnavailable.rawValue:
+                AudioKit.stop()
+                self.dismiss(animated: false, completion: {})
+                reset()
+                if RecordVar == true {
+                    stopRecording(success: true)}
+            default:
+                break
         }
     }
     
@@ -206,6 +207,8 @@ class MiniChamberVC: UIViewController {
         super.viewDidLoad()
         
         UIApplication.shared.isIdleTimerDisabled = true
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(MiniChamberVC.audioRouteChangeListener(notification:)), name: NSNotification.Name.AVAudioSessionRouteChange, object: nil)
         
         // Do any additional setup after loading the view, typically from a nib.
         

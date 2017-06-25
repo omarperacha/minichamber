@@ -18,9 +18,11 @@ class TableViewControllerMC: UITableViewController {
         
         switch audioRouteChangeReason {
         case AVAudioSessionRouteChangeReason.newDeviceAvailable.rawValue:
-            AudioKit.start()
+            if AKSettings.headPhonesPlugged == false {
+                dismiss()} else {AudioKit.start()}
         case AVAudioSessionRouteChangeReason.oldDeviceUnavailable.rawValue:
-            AudioKit.start()
+            if AKSettings.headPhonesPlugged == false {
+                dismiss()} else {AudioKit.start()}
         default:
             break
         }
@@ -47,23 +49,7 @@ class TableViewControllerMC: UITableViewController {
     @IBOutlet weak var xButton: RoundButton!
     
     @IBAction func dismiss(_ sender: Any) {
-        AudioKit.stop()
-        input.stop()
-        if player != nil{
-        player!.stop()
-        }
-        AKSettings.playbackWhileMuted = false
-        self.dismiss(animated: false, completion: {
-                AudioKit.engine.reset()
-                AudioKit.disconnectAllInputs()
-            if AKSettings.headPhonesPlugged == false {
-                let audioSession = AVAudioSession.sharedInstance()
-                do {
-                    try audioSession.overrideOutputAudioPort(AVAudioSessionPortOverride.none)
-                } catch let error as NSError {
-                    print("Audio Session error: \(error.localizedDescription)")
-                }}
-                })
+        dismiss()
     }
     
     @IBOutlet weak var playButton: RoundButton!
@@ -106,6 +92,8 @@ class TableViewControllerMC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+         NotificationCenter.default.addObserver(self, selector: #selector(TableViewControllerMC.audioRouteChangeListener(notification:)), name: NSNotification.Name.AVAudioSessionRouteChange, object: nil)
         
         AKSettings.playbackWhileMuted = true
         silence.volume = 0
@@ -260,6 +248,26 @@ class TableViewControllerMC: UITableViewController {
         DispatchQueue.main.async {
             self.playButton.setImage(UIImage(named: "icons8-Play Filled-50.png"), for: .normal)
         }
+    }
+    
+    func dismiss(){
+        AudioKit.stop()
+        input.stop()
+        if player != nil{
+            player!.stop()
+        }
+        AKSettings.playbackWhileMuted = false
+        self.dismiss(animated: false, completion: {
+            AudioKit.engine.reset()
+            AudioKit.disconnectAllInputs()
+            if AKSettings.headPhonesPlugged == false {
+                let audioSession = AVAudioSession.sharedInstance()
+                do {
+                    try audioSession.overrideOutputAudioPort(AVAudioSessionPortOverride.none)
+                } catch let error as NSError {
+                    print("Audio Session error: \(error.localizedDescription)")
+                }}
+        })
     }
     /*
     // Override to support rearranging the table view.
