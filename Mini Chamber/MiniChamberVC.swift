@@ -14,7 +14,7 @@ var input = AKMicrophone()
 class MiniChamberVC: UIViewController {
 
     
-   dynamic fileprivate func audioRouteChangeListener(notification:NSNotification) {
+   @objc dynamic fileprivate func audioRouteChangeListener(notification:NSNotification) {
        let audioRouteChangeReason = notification.userInfo![AVAudioSessionRouteChangeReasonKey] as! UInt
         
         switch audioRouteChangeReason {
@@ -40,6 +40,9 @@ class MiniChamberVC: UIViewController {
     var audioRecorder: AKNodeRecorder!
     var timeStamp: String?
     var AudioFile: AKAudioFile?
+    
+    var currentDate = Date()
+    let dateFormatter = DateFormatter()
     
     var settings = [
         AVNumberOfChannelsKey: 2,
@@ -210,6 +213,8 @@ class MiniChamberVC: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(MiniChamberVC.audioRouteChangeListener(notification:)), name: NSNotification.Name.AVAudioSessionRouteChange, object: nil)
         
+        dateFormatter.dateFormat = "yyyy-MM-dd_H.mm.ss"
+        
         // Do any additional setup after loading the view, typically from a nib.
         
         wave1.alpha = 0
@@ -222,16 +227,8 @@ class MiniChamberVC: UIViewController {
         closeButton.layer.borderColor = UIColor.lightGray.cgColor
         
         //get timestamp
-        let date = Date()
-        let calendar = Calendar.current
-        
-        let year = calendar.component(.year, from: date)
-        let month = calendar.component(.month, from: date)
-        let day = calendar.component(.day, from: date)
-        let hour = calendar.component(.hour, from: date)
-        let minutes = calendar.component(.minute, from: date)
-        let seconds = calendar.component(.second, from: date)
-        timeStamp = "\(day)-\(month)-\(year)at_\(hour)h\(minutes).\(seconds)"
+        currentDate = Date()
+        timeStamp = dateFormatter.string(from: currentDate)
      
         
         //MARK - SET UP OSCILLATORS
@@ -308,7 +305,6 @@ class MiniChamberVC: UIViewController {
         let str =  docsurl.appendingPathComponent("\(timeStamp!)_MiniChamber.aiff")
         let url = NSURL.fileURL(withPath: str as String)
         
-        
         AudioKit.output = output
         input.start()
         tracker.start()
@@ -322,7 +318,7 @@ class MiniChamberVC: UIViewController {
         }
     }
     
-    func initiate(){
+    @objc func initiate(){
         
         
         
@@ -622,7 +618,7 @@ class MiniChamberVC: UIViewController {
 
     }
     
-    func linearFade(){
+    @objc func linearFade(){
         if filtMix.volume > 0{
             filtMix.volume -= differential}
         if inputMixer.volume > 0{

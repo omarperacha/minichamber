@@ -32,11 +32,11 @@ public class HumOsc: AKOscillator {
     
     override public func start(){
         super.start()
-        partial1.amplitude = super.amplitude*0.25*random(0.9, 1.1)
-        partial2.amplitude = super.amplitude*0.2*random(0.9, 1.1)
-        partial3.amplitude = super.amplitude*0.15*random(0.9, 1.1)
-        partial4.amplitude = super.amplitude*0.1*random(0.9, 1.1)
-        partial5.amplitude = super.amplitude*0.05*random(0.9, 1.1)
+        partial1.amplitude = super.amplitude*0.25*random(in: 0.9...1.1)
+        partial2.amplitude = super.amplitude*0.2*random(in: 0.9...1.1)
+        partial3.amplitude = super.amplitude*0.15*random(in: 0.9...1.1)
+        partial4.amplitude = super.amplitude*0.1*random(in: 0.9...1.1)
+        partial5.amplitude = super.amplitude*0.05*random(in: 0.9...1.1)
         partial1.start()
         partial2.start()
         partial3.start()

@@ -58,7 +58,7 @@ class ViewController: UIViewController {
         }
     }
     
-    func setFadeIndex() {
+    @objc func setFadeIndex() {
         fadeIndex = Float(self.HeadphoneIcon.alpha)
     }
     

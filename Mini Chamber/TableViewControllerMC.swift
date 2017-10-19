@@ -13,7 +13,7 @@ import Foundation
 class TableViewControllerMC: UITableViewController {
 
     
-    func audioRouteChangeListener(notification:NSNotification) {
+    @objc func audioRouteChangeListener(notification:NSNotification) {
         let audioRouteChangeReason = notification.userInfo![AVAudioSessionRouteChangeReasonKey] as! UInt
         
         switch audioRouteChangeReason {
@@ -32,10 +32,7 @@ class TableViewControllerMC: UITableViewController {
         return true
     }
     
-    
-    var indPath = 0
-    var shareInd = 0
-    var indCount : Int?
+
     var documentController = UIDocumentInteractionController()
     var audioFile : AKAudioFile?
     var player: AKAudioPlayer?
@@ -86,9 +83,14 @@ class TableViewControllerMC: UITableViewController {
     var fileName: NSString?
     var finalArray: [String] = []
     
+    var selectedFile = ""
     
     // Get the document directory url
-    let documentsUrl =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+    let docstring = NSSearchPathForDirectoriesInDomains( FileManager.SearchPathDirectory.documentDirectory,  FileManager.SearchPathDomainMask.userDomainMask, true)[0] as NSString
+    
+    let docsurl =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+    
+    var docspath = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,7 +99,6 @@ class TableViewControllerMC: UITableViewController {
         
         AKSettings.playbackWhileMuted = true
         silence.volume = 0
-        indCount = 0
         
         if AKSettings.headPhonesPlugged == false {
         let audioSession = AVAudioSession.sharedInstance()
@@ -120,25 +121,10 @@ class TableViewControllerMC: UITableViewController {
         shareButton.isEnabled = false
         
         
-        do {
-            // Get the directory contents urls (including subfolders urls)
-            let directoryContents = try FileManager.default.contentsOfDirectory(at: documentsUrl, includingPropertiesForKeys: nil, options: [])
-            files = directoryContents.map{String(describing: $0)}
-            for file in files{
-             fileName = file as NSString
-                if fileName?.lastPathComponent != ".DS_Store" {
-                finalArray.append(fileName!.lastPathComponent)
-                }
-            }
-        } catch {
-            print("didn't work")
-        }
+       getfiles()
         
-        //print("\(files.count)")
+        docspath = docsurl.path
         
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
@@ -158,7 +144,6 @@ class TableViewControllerMC: UITableViewController {
             //self.tableView.frame.size.height - self.tableView.contentSize.height - self.footerView.frame.size.height)
         self.tableView.tableFooterView = self.footerView
         
-        NotificationCenter.default.addObserver(self, selector: #selector(TableViewControllerMC.reloadData), name:NSNotification.Name(rawValue: "reloadData"), object: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -192,22 +177,14 @@ class TableViewControllerMC: UITableViewController {
         return "Files"
     }
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-
      //Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) {
+            selectedFile = (cell.textLabel?.text)!}
         if editingStyle == .delete {
             finalArray.remove(at: indexPath.row)
-            indPath = indexPath.row
             tableView.deleteRows(at: [indexPath], with:UITableViewRowAnimation.automatic)
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reloadData"),object: self)
+            deleteFile()
         }
     }
     
@@ -216,26 +193,51 @@ class TableViewControllerMC: UITableViewController {
             if cell.isSelected {
                 shareButton.isEnabled = true
                 playButton.isEnabled = true
-                shareInd = indexPath.row
-                do {let directoryContents = try FileManager.default.contentsOfDirectory(at: documentsUrl, includingPropertiesForKeys: nil, options: [])
-                    documentController = UIDocumentInteractionController.init(url: directoryContents[shareInd-indCount!])
-                    audioFile = try AKAudioFile(forReading: directoryContents[shareInd-indCount!])
-                } catch {print("fail")}
+                selectedFile = (cell.textLabel?.text)!
+                
+                do {
+                    audioFile = try AKAudioFile(forReading: URL(string: "file://\(docspath)/\(selectedFile)")!)
+                    documentController = UIDocumentInteractionController.init(url: URL(string: "file://\(docspath)/\(selectedFile)")!)
+                } catch {print(error.localizedDescription)}
             }
         }
     }
     
-    func reloadData(notification:NSNotification){
-        // reload function here, so when called it will reload the tableView
-        finalArray.insert("Successfully Deleted", at: indPath)
-        //tableView.reloadData()
-        tableView.beginUpdates()
-        tableView.insertRows(at: [IndexPath(row: indPath, section: 0)], with: .automatic)
-        tableView.endUpdates()
-        do{let directoryContents = try FileManager.default.contentsOfDirectory(at: documentsUrl, includingPropertiesForKeys: nil, options: [])
-            try FileManager.default.removeItem(at: directoryContents[indPath-indCount!])
-        } catch{print("deletion failed")}
-        indCount! += 1
+    func  refreshTable(){
+        getfiles()
+        tableView.reloadData()
+    }
+    
+    func deleteFile(){
+        do {let fileManager = FileManager.default
+            if fileManager.fileExists(atPath: "/\(docspath)/\(selectedFile)") {
+                print("exists")
+                print("/\(docspath)/\(selectedFile)")
+                try fileManager.removeItem(atPath: "/\(docspath)/\(selectedFile)")
+            } else {
+                print("File does not exist")
+            }
+        } catch{print(error.localizedDescription)}
+    }
+    
+    func getfiles(){
+        do {
+            // Get the directory contents urls (including subfolders urls)
+            finalArray = []
+            let directoryContents = try FileManager.default.contentsOfDirectory(at: docsurl, includingPropertiesForKeys: nil, options: [])
+            files = directoryContents.map{String(describing: $0)}
+            for file in files{
+                fileName = file as NSString
+                if fileName?.lastPathComponent != ".DS_Store" {
+                    finalArray.append(fileName!.lastPathComponent)
+                }
+            }
+            finalArray = finalArray.reversed()
+            //print(finalArray)
+        } catch {
+            print("didn't work")
+        }
+        
     }
     
     func debug(){

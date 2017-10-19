@@ -25,9 +25,9 @@
 		59A427BC1EEEF801003031DE /* icons8-Play Filled-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 59A427B91EEEF801003031DE /* icons8-Play Filled-50.png */; };
 		59A427BD1EEEF801003031DE /* icons8-Trash-48.png in Resources */ = {isa = PBXBuildFile; fileRef = 59A427BA1EEEF801003031DE /* icons8-Trash-48.png */; };
 		59A427BE1EEEF801003031DE /* icons8-Upload-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 59A427BB1EEEF801003031DE /* icons8-Upload-50.png */; };
+		59B42B441F98C6EE00F1AD51 /* AudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59B42B431F98C6EE00F1AD51 /* AudioKit.framework */; };
+		59B42B451F98C6EE00F1AD51 /* AudioKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59B42B431F98C6EE00F1AD51 /* AudioKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		59B8E8D31EE3AE5100EFA3C9 /* TableViewControllerMC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59B8E8D21EE3AE5100EFA3C9 /* TableViewControllerMC.swift */; };
-		59D00BB01EF4D61000B5351B /* AudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59D00BAF1EF4D61000B5351B /* AudioKit.framework */; };
-		59D00BB11EF4D61000B5351B /* AudioKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59D00BAF1EF4D61000B5351B /* AudioKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		59D6AA021E953C6F0049DA8E /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D6AA011E953C6F0049DA8E /* RoundButton.swift */; };
 		59F147451E648A2200864723 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F147441E648A2200864723 /* AppDelegate.swift */; };
 		59F147471E648A2200864723 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F147461E648A2200864723 /* ViewController.swift */; };
@@ -62,7 +62,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				59D00BB11EF4D61000B5351B /* AudioKit.framework in Embed Frameworks */,
+				59B42B451F98C6EE00F1AD51 /* AudioKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -88,8 +88,8 @@
 		59A427B91EEEF801003031DE /* icons8-Play Filled-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-Play Filled-50.png"; sourceTree = "<group>"; };
 		59A427BA1EEEF801003031DE /* icons8-Trash-48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-Trash-48.png"; sourceTree = "<group>"; };
 		59A427BB1EEEF801003031DE /* icons8-Upload-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-Upload-50.png"; sourceTree = "<group>"; };
+		59B42B431F98C6EE00F1AD51 /* AudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AudioKit.framework; sourceTree = "<group>"; };
 		59B8E8D21EE3AE5100EFA3C9 /* TableViewControllerMC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewControllerMC.swift; sourceTree = "<group>"; };
-		59D00BAF1EF4D61000B5351B /* AudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AudioKit.framework; sourceTree = "<group>"; };
 		59D6AA011E953C6F0049DA8E /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RoundButton.swift; path = "Mini Chamber/RoundButton.swift"; sourceTree = "<group>"; };
 		59F147411E648A2000864723 /* Mini Chamber.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mini Chamber.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		59F147441E648A2200864723 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -111,7 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				59D00BB01EF4D61000B5351B /* AudioKit.framework in Frameworks */,
+				59B42B441F98C6EE00F1AD51 /* AudioKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,7 +135,7 @@
 		59F147381E648A1C00864723 = {
 			isa = PBXGroup;
 			children = (
-				59D00BAF1EF4D61000B5351B /* AudioKit.framework */,
+				59B42B431F98C6EE00F1AD51 /* AudioKit.framework */,
 				59A427B91EEEF801003031DE /* icons8-Play Filled-50.png */,
 				59A427BA1EEEF801003031DE /* icons8-Trash-48.png */,
 				594FC9141EF4B1B2006D4949 /* icons8-Stop Filled-50.png */,
@@ -270,23 +270,26 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Omar Peracha";
 				TargetAttributes = {
 					59F147401E648A1C00864723 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 255A692Y6K;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Manual;
 					};
 					59F147541E648A4500864723 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 255A692Y6K;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 59F147401E648A1C00864723;
 					};
 					59F1475F1E648A4900864723 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 255A692Y6K;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 59F147401E648A1C00864723;
 					};
@@ -458,7 +461,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -466,7 +471,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -508,7 +517,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -516,7 +527,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -559,7 +574,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "e76ecf9c-4165-47d6-a38d-9219aafe8615";
 				PROVISIONING_PROFILE_SPECIFIER = "Mini Chamber App Store Distribution";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -580,7 +596,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "e76ecf9c-4165-47d6-a38d-9219aafe8615";
 				PROVISIONING_PROFILE_SPECIFIER = "Mini Chamber App Store Distribution";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -594,7 +611,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.omarperacha.Mini-ChamberTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mini Chamber.app/Mini Chamber";
 			};
 			name = Debug;
@@ -609,7 +627,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.omarperacha.Mini-ChamberTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mini Chamber.app/Mini Chamber";
 			};
 			name = Release;
@@ -623,7 +642,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.omarperacha.Mini-ChamberUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = "Mini Chamber";
 			};
 			name = Debug;
@@ -637,7 +657,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.omarperacha.Mini-ChamberUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = "Mini Chamber";
 			};
 			name = Release;
